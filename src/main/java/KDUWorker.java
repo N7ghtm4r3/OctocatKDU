@@ -5,12 +5,16 @@ import com.tecknobit.githubmanager.repositories.repositories.GitHubRepositoriesM
 import com.tecknobit.githubmanager.repositories.repositories.records.Repository;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static com.tecknobit.apimanager.apis.APIRequest.downloadFile;
-import static java.awt.Desktop.getDesktop;
 import static java.awt.Desktop.isDesktopSupported;
+import static java.lang.System.exit;
 
 public class KDUWorker {
 
@@ -30,7 +34,11 @@ public class KDUWorker {
 
     private final Repository repository;
 
-    public KDUWorker(String accessToken, String owner, String repo) {
+    private final String appName;
+
+    private static final Desktop desktop = Desktop.getDesktop();
+
+    public KDUWorker(String accessToken, String owner, String repo, String appName) {
         releasesManager = new GitHubReleasesManager(accessToken);
         GitHubRepositoriesManager repositoriesManager = new GitHubRepositoriesManager();
         Repository repository;
@@ -44,6 +52,7 @@ public class KDUWorker {
         }
         this.repository = repository;
         this.lastRelease = lastRelease;
+        this.appName = appName;
     }
 
     public boolean canBeUpdated(String currentVersion) {
@@ -61,7 +70,6 @@ public class KDUWorker {
     public void installNewVersion() {
         OS currentOs = getCurrentOs();
         if(currentOs != null) {
-            Desktop desktop = getDesktop();
             String downloadUrl = null;
             String executableSuffix = null;
             boolean foundCorrectExecutable = false;
@@ -86,17 +94,29 @@ public class KDUWorker {
                     }
                 }
             }
-            if(downloadUrl != null) {
-                if(isDesktopSupported()) {
-                    // TO-DO: CHECK IF OPENED CORRECTLY AND INSTALLED
-                    try {
-                        desktop.open(downloadFile(downloadUrl, "prova." + executableSuffix, false));
-                    } catch (IOException ignored) {
-                        ignored.printStackTrace();
-                    }
-                } else {
+            installAndRunExecutable(downloadUrl, executableSuffix);
+        }
+    }
 
+    private void installAndRunExecutable(String downloadUrl, String executableSuffix) {
+        if(downloadUrl != null) {
+            try {
+                if(isDesktopSupported()) {
+                    ExecutorService executor = Executors.newSingleThreadExecutor();
+                    executor.execute(() -> {
+                        String executablePath = System.getProperty("user.home") + "/Downloads/" + appName + "-" +
+                                lastRelease.getTagName() + "." + executableSuffix;
+                        try {
+                            File executable = downloadFile(downloadUrl, executablePath, true);
+                            desktop.open(executable);
+                            exit(0);
+                        } catch (IOException ignored) {}
+                    });
+                } else {
+                    desktop.browse(URI.create(downloadUrl));
+                    exit(0);
                 }
+            } catch (IOException ignored) {
             }
         }
     }

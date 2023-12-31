@@ -15,7 +15,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.tecknobit.mantis.Mantis
-import kotlinx.coroutines.launch
 import java.util.*
 
 @Composable
@@ -41,9 +40,8 @@ fun UpdateDialog(
 ) {
     val mantis = Mantis(locale)
     var show by remember { mutableStateOf(true) }
-    val kduWorker = KDUWorker(accessToken, owner, repo)
+    val kduWorker = KDUWorker(accessToken, owner, repo, appName)
     var isInstalling by remember { mutableStateOf(false) }
-    val coroutineScope = rememberCoroutineScope()
     if(kduWorker.canBeUpdated(currentVersion)) {
         if(show) {
             AlertDialog(
@@ -74,7 +72,8 @@ fun UpdateDialog(
                     } else {
                         Text(
                             modifier = textModifier,
-                            text = "${mantis.getResource("text_part_one_key")} $appName${mantis.getResource("text_part_two_key")}",
+                            text = "${mantis.getResource("text_part_one_key")} $appName" +
+                                    "${mantis.getResource("text_part_two_key")}",
                             color = textColor,
                             fontSize = textFontSize,
                             fontStyle = textFontStyle,
@@ -97,10 +96,7 @@ fun UpdateDialog(
                         TextButton(
                             onClick = {
                                 isInstalling = true
-                                TODO("LAUNCH IN BACKGROUND TO AVOID THE LOCK OF THE UI")
-                                coroutineScope.launch {
-                                    kduWorker.installNewVersion()
-                                }
+                                kduWorker.installNewVersion()
                             }
                         ) {
                             Text(mantis.getResource("update_key"))
