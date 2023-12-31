@@ -1,0 +1,102 @@
+{
+    "de": {
+        "no_update_key": "Nicht aktualisieren",
+        "update_key": "Aktualisierung"
+    },
+    "hi": {
+        "no_update_key": "à¤\u2026à¤¦à¥�à¤¯à¤¤à¤¨ à¤¨ à¤\u2022à¤°à¥\u2021à¤\u201a",
+        "update_key": "à¤\u2026à¤ªà¤¡à¥\u2021à¤Ÿ"
+    },
+    "ru": {
+        "no_update_key": "Ð�Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»Ñ�Ð¹Ñ\u201aÐµ",
+        "update_key": "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ"
+    },
+    "fi": {
+        "no_update_key": "Ã\u201elÃ¤ pÃ¤ivitÃ¤",
+        "update_key": "PÃ¤ivitys"
+    },
+    "pt": {
+        "no_update_key": "NÃ£o atualize",
+        "update_key": "AtualizaÃ§Ã£o"
+    },
+    "fr": {
+        "no_update_key": "Ne pas mettre Ã  jour",
+        "update_key": "Mise Ã  jour"
+    },
+    "hu": {
+        "no_update_key": "Ne frissÃ­ts",
+        "update_key": "FrissÃ­tÃ©s"
+    },
+    "uk": {
+        "no_update_key": "Ð�Ðµ Ð¾Ð½Ð¾Ð²Ð¸Ñ\u201aÐ¸",
+        "update_key": "Ð�Ð¾Ð²Ð¸Ð½Ð¸"
+    },
+    "sk": {
+        "no_update_key": "Aktualizujte",
+        "update_key": "Aktuality"
+    },
+    "ga": {
+        "no_update_key": "NÃ¡ thabhairt cothrom le dÃ¡ta",
+        "update_key": "DÃ©an TeagmhÃ¡il Linn"
+    },
+    "id": {
+        "no_update_key": "Jangan update",
+        "update_key": "Sitemap"
+    },
+    "sv": {
+        "no_update_key": "Inte uppdatera",
+        "update_key": "Uppdatering"
+    },
+    "ko": {
+        "no_update_key": "ì\u2014\u2026ë�°ì�´íŠ¸",
+        "update_key": "(ì£¼)"
+    },
+    "el": {
+        "no_update_key": "ÎœÎ·Î½ ÎµÎ½Î·Î¼ÎµÏ�ÏŽÎ½ÎµÏ\u201eÎµ",
+        "update_key": "Î\u2022Î½Î·Î¼Î­Ï�Ï\u2030ÏƒÎ·"
+    },
+    "en": {
+        "no_update_key": "Don't update",
+        "update_key": "Update"
+    },
+    "it": {
+        "no_update_key": "Non aggiornare",
+        "update_key": "Aggiorna"
+    },
+    "zh": {
+        "no_update_key": "å\u2026­. æ\u203a´æ\u2013°",
+        "update_key": "A. æ\u203a´æ\u2013°"
+    },
+    "es": {
+        "no_update_key": "No hay actualizaciÃ³n",
+        "update_key": "ActualizaciÃ³n"
+    },
+    "cs": {
+        "no_update_key": "Novinky",
+        "update_key": "Aktualizovat"
+    },
+    "ar": {
+        "no_update_key": "Ù\u201eØ§ ØªØ³ØªÙƒÙ\u2026Ù\u201e",
+        "update_key": "Ø¢Ø®Ø±"
+    },
+    "ja": {
+        "no_update_key": "æ\u203a´æ\u2013°ã�\u2014ã�ªã�\u201eã�§ã��ã� ã�\u2022ã�\u201e",
+        "update_key": "ãƒ\u2039ãƒ¥ãƒ¼ã\u201a¹"
+    },
+    "pl": {
+        "no_update_key": "Nie uaktualniaj",
+        "update_key": "Aktualizacja"
+    },
+    "da": {
+        "no_update_key": "Opdater ikke",
+        "update_key": "Opdater opdatering"
+    },
+    "nl": {
+        "no_update_key": "Niet bijwerken",
+        "update_key": "Bijwerken"
+    },
+    "tr": {
+        "no_update_key": "GÃ¼ncelleme",
+        "update_key": "Update"
+    }
+}
