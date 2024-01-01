@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import java.util.*
 
 /**
  * `COLOR_PRIMARY_HEX` the primary color value as hex [String]
@@ -61,14 +60,19 @@ fun fromHexToColor(hex: String): Color {
 @Preview
 fun App() {
     MaterialTheme {
-        UpdateDialog(
-            locale = Locale.UK,
+        UpdaterDialog(
+            //locale = Locale.UK,
             appName = "Pandoro",
             currentVersion = "1.0.0",
             accessToken = "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",
             owner = "N7ghtm4r3",
             repo = "Pandoro-Desktop"
         )
+        /*FakeUpdaterDialog(
+            //locale = Locale.UK,
+            appName = "Pandoro",
+            //showFakeUpdate = false
+        )*/
     }
 }
 

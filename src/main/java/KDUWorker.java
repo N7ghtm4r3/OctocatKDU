@@ -1,3 +1,5 @@
+import com.tecknobit.apimanager.apis.ConsolePainter;
+import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor;
 import com.tecknobit.githubmanager.releases.releaseassets.records.ReleaseAsset;
 import com.tecknobit.githubmanager.releases.releases.GitHubReleasesManager;
 import com.tecknobit.githubmanager.releases.releases.records.Release;
@@ -12,7 +14,10 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static com.tecknobit.apimanager.apis.APIRequest.DEFAULT_ERROR_RESPONSE;
 import static com.tecknobit.apimanager.apis.APIRequest.downloadFile;
+import static com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.RED;
+import static com.tecknobit.apimanager.formatters.TimeFormatter.getDate;
 import static java.awt.Desktop.isDesktopSupported;
 import static java.lang.System.exit;
 import static java.util.concurrent.Executors.newCachedThreadPool;
@@ -31,6 +36,8 @@ public class KDUWorker {
     }
 
     private static final Desktop desktop = Desktop.getDesktop();
+
+    private static final ConsolePainter painter = new ConsolePainter();
 
     private ExecutorService executor = newCachedThreadPool();
 
@@ -52,7 +59,9 @@ public class KDUWorker {
         try {
             repository = repositoriesManager.getRepository(owner, repo);
             lastRelease = releasesManager.getLatestRelease(repository);
-        } catch (IOException e) {
+        } catch (Exception e) {
+            if(!repositoriesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
+                logError("Incorrect repository data");
             repository = null;
             lastRelease = null;
         }
@@ -66,7 +75,9 @@ public class KDUWorker {
             try {
                 Release currentRelease = releasesManager.getReleaseByTagName(repository, currentVersion);
                 return lastRelease.getCreatedAtTimestamp() > currentRelease.getCreatedAtTimestamp();
-            } catch (IOException e) {
+            } catch (Exception e) {
+                if(!releasesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
+                    logError("No releases found with this version");
                 return false;
             }
         }
@@ -145,6 +156,16 @@ public class KDUWorker {
         });
     }
 
+    public static void logError(String message) {
+        logMessage(message, RED);
+    }
+
+    public static void logMessage(String message, ANSIColor color) {
+        if(!message.startsWith(" "))
+            message = " " + message;
+        painter.printBold("[OctocatKDU - " + getDate(System.currentTimeMillis()) + "]:" + message, color);
+    }
+
     private OS getCurrentOs() {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win"))
@@ -173,4 +194,5 @@ public class KDUWorker {
             return null;
         return " v. " + lastRelease.getTagName();
     }
+
 }
