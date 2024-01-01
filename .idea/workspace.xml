@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Work on installation of the nex executable for specific OS">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Finished the installation of the nex executable for specific OS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/UpdateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/UpdateDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/resources.mantis" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/resources.mantis" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,13 +173,22 @@
       <option name="project" value="LOCAL" />
       <updated>1704037669923</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finished the installation of the nex executable for specific OS">
+      <option name="closed" value="true" />
+      <created>1704062719396</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704062719396</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Link commit!" />
     <MESSAGE value="Created the base structure" />
     <MESSAGE value="Work on installation of the nex executable for specific OS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on installation of the nex executable for specific OS" />
+    <MESSAGE value="Finished the installation of the nex executable for specific OS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the installation of the nex executable for specific OS" />
   </component>
 </project>

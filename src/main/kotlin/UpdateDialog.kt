@@ -1,4 +1,3 @@
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,6 +13,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.tecknobit.mantis.Mantis
 import java.util.*
 
@@ -24,13 +24,13 @@ fun UpdateDialog(
     currentVersion: String,
     titleModifier: Modifier = Modifier,
     titleColor: Color = Color.Unspecified,
-    titleFontSize: TextUnit = TextUnit.Unspecified,
+    titleFontSize: TextUnit = 18.sp,
     titleFontStyle: FontStyle? = null,
     titleFontWeight: FontWeight? = null,
     titleFontFamily: FontFamily? = null,
     textModifier: Modifier = Modifier,
     textColor: Color = Color.Unspecified,
-    textFontSize: TextUnit = TextUnit.Unspecified,
+    textFontSize: TextUnit = 16.sp,
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
     textFontFamily: FontFamily? = null,
@@ -49,7 +49,7 @@ fun UpdateDialog(
                 title = {
                     Text(
                         modifier = titleModifier,
-                        text = mantis.getResource("title_key"),
+                        text = mantis.getResource("title_key") + kduWorker.lastVersionCode + "!",
                         color = titleColor,
                         fontSize = titleFontSize,
                         fontStyle = titleFontStyle,
@@ -92,15 +92,21 @@ fun UpdateDialog(
                     }
                 },
                 confirmButton = {
-                    if(!isInstalling) {
-                        TextButton(
-                            onClick = {
-                                isInstalling = true
+                    TextButton(
+                        onClick = {
+                            if(!isInstalling)
                                 kduWorker.installNewVersion()
-                            }
-                        ) {
-                            Text(mantis.getResource("update_key"))
+                            else
+                                kduWorker.stopInstallation()
+                            isInstalling = !isInstalling
                         }
+                    ) {
+                        Text(
+                            text = if(!isInstalling)
+                                mantis.getResource("update_key")
+                            else
+                                mantis.getResource("dismiss_key")
+                        )
                     }
                 }
             )

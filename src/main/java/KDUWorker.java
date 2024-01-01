@@ -10,11 +10,13 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import static com.tecknobit.apimanager.apis.APIRequest.downloadFile;
 import static java.awt.Desktop.isDesktopSupported;
 import static java.lang.System.exit;
+import static java.util.concurrent.Executors.newCachedThreadPool;
+import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 public class KDUWorker {
 
@@ -28,6 +30,10 @@ public class KDUWorker {
 
     }
 
+    private static final Desktop desktop = Desktop.getDesktop();
+
+    private ExecutorService executor = newCachedThreadPool();
+
     private final GitHubReleasesManager releasesManager;
 
     private final Release lastRelease;
@@ -36,7 +42,7 @@ public class KDUWorker {
 
     private final String appName;
 
-    private static final Desktop desktop = Desktop.getDesktop();
+    private String executablePath;
 
     public KDUWorker(String accessToken, String owner, String repo, String appName) {
         releasesManager = new GitHubReleasesManager(accessToken);
@@ -102,10 +108,9 @@ public class KDUWorker {
         if(downloadUrl != null) {
             try {
                 if(isDesktopSupported()) {
-                    ExecutorService executor = Executors.newSingleThreadExecutor();
                     executor.execute(() -> {
-                        String executablePath = System.getProperty("user.home") + "/Downloads/" + appName + "-" +
-                                lastRelease.getTagName() + "." + executableSuffix;
+                        executablePath = System.getProperty("user.home") + "/Downloads/" + appName + "-"
+                                + lastRelease.getTagName() + "." + executableSuffix;
                         try {
                             File executable = downloadFile(downloadUrl, executablePath, true);
                             desktop.open(executable);
@@ -119,6 +124,25 @@ public class KDUWorker {
             } catch (IOException ignored) {
             }
         }
+    }
+
+    public void stopInstallation() {
+        executor.shutdown();
+        try {
+            if (!executor.awaitTermination(800, TimeUnit.MILLISECONDS))
+                executor.shutdownNow();
+        } catch (InterruptedException e) {
+            executor.shutdownNow();
+        }
+        executor = newCachedThreadPool();
+        ExecutorService service = newSingleThreadExecutor();
+        service.execute(() -> {
+            File executableFile = new File(executablePath);
+            if (executableFile.exists()) {
+                while (!executableFile.delete());
+                executablePath = null;
+            }
+        });
     }
 
     private OS getCurrentOs() {
@@ -144,4 +168,9 @@ public class KDUWorker {
         return suffix.equals("dmg") || suffix.equals("pkg");
     }
 
+    public String getLastVersionCode() {
+        if(lastRelease == null)
+            return null;
+        return " v. " + lastRelease.getTagName();
+    }
 }
