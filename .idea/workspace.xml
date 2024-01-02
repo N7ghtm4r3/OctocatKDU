@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Finished the installation of the nex executable for specific OS">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Finished the dialogs!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/UpdateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/UpdateDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/resources.mantis" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/resources.mantis" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +91,6 @@
     &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -181,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704062719396</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Optimize the dialog operations">
+      <option name="closed" value="true" />
+      <created>1704117298697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704117298698</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Finished the dialogs!">
+      <option name="closed" value="true" />
+      <created>1704127168751</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704127168751</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,6 +206,8 @@
     <MESSAGE value="Created the base structure" />
     <MESSAGE value="Work on installation of the nex executable for specific OS" />
     <MESSAGE value="Finished the installation of the nex executable for specific OS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the installation of the nex executable for specific OS" />
+    <MESSAGE value="Optimize the dialog operations" />
+    <MESSAGE value="Finished the dialogs!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the dialogs!" />
   </component>
 </project>

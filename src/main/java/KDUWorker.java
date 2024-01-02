@@ -1,3 +1,5 @@
+import com.tecknobit.apimanager.apis.ConsolePainter;
+import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor;
 import com.tecknobit.githubmanager.releases.releaseassets.records.ReleaseAsset;
 import com.tecknobit.githubmanager.releases.releases.GitHubReleasesManager;
 import com.tecknobit.githubmanager.releases.releases.records.Release;
@@ -12,38 +14,94 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static com.tecknobit.apimanager.apis.APIRequest.DEFAULT_ERROR_RESPONSE;
 import static com.tecknobit.apimanager.apis.APIRequest.downloadFile;
+import static com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.RED;
+import static com.tecknobit.apimanager.formatters.TimeFormatter.getDate;
 import static java.awt.Desktop.isDesktopSupported;
 import static java.lang.System.exit;
 import static java.util.concurrent.Executors.newCachedThreadPool;
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
+/**
+ * The {@code KDUWorker} class is useful to check whether there is a last release available and in that case manage the
+ * installation of the correct executable to update the current version
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ */
 public class KDUWorker {
 
+    /**
+     * {@code OS} list of available OS
+     */
     private enum OS {
 
+        /**
+         * {@code LINUX} OS
+         */
         LINUX,
 
+        /**
+         * {@code WINDOWS} OS
+         */
         WINDOWS,
 
+        /**
+         * {@code MACOS} OS
+         */
         MACOS
 
     }
 
+    /**
+     * {@code desktop} the current desktop environment where the application is running
+     */
     private static final Desktop desktop = Desktop.getDesktop();
 
+    /**
+     * {@code painter} instance to manage the console painter
+     */
+    private static final ConsolePainter painter = new ConsolePainter();
+
+    /**
+     * {@code executor} to launch the background tasks to not freeze the UI
+     */
     private ExecutorService executor = newCachedThreadPool();
 
+    /**
+     * {@code releasesManager} manager to get the releases of the application
+     */
     private final GitHubReleasesManager releasesManager;
 
+    /**
+     * {@code lastRelease} the latest release available
+     */
     private final Release lastRelease;
 
+    /**
+     * {@code repository} the repository of the application
+     */
     private final Repository repository;
 
+    /**
+     * {@code appName} the name of the application where the dialog will be shown
+     */
     private final String appName;
 
+    /**
+     * {@code executablePath} the path where save the executable file and launch to install it
+     */
     private String executablePath;
 
+    /**
+     * Constructor to init the {@link KDUWorker} class
+     *
+     * @param accessToken: personal access token for authentication
+     * @param owner: the account owner of the repository
+     * @param repo: the name of the repository
+     * @param appName:{@code appName} the name of the application where the dialog will be shown
+     *
+     */
     public KDUWorker(String accessToken, String owner, String repo, String appName) {
         releasesManager = new GitHubReleasesManager(accessToken);
         GitHubRepositoriesManager repositoriesManager = new GitHubRepositoriesManager();
@@ -52,7 +110,9 @@ public class KDUWorker {
         try {
             repository = repositoriesManager.getRepository(owner, repo);
             lastRelease = releasesManager.getLatestRelease(repository);
-        } catch (IOException e) {
+        } catch (Exception e) {
+            if (!repositoriesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
+                logError("Incorrect repository data");
             repository = null;
             lastRelease = null;
         }
@@ -61,41 +121,56 @@ public class KDUWorker {
         this.appName = appName;
     }
 
+    /**
+     * Method to check whether the application can be updated to the latest version available
+     * @param currentVersion: the current version of the application
+     * @return whether the application can be updated to the latest version available as boolean
+     */
     public boolean canBeUpdated(String currentVersion) {
-        if(repository != null) {
+        if (repository != null) {
             try {
                 Release currentRelease = releasesManager.getReleaseByTagName(repository, currentVersion);
                 return lastRelease.getCreatedAtTimestamp() > currentRelease.getCreatedAtTimestamp();
-            } catch (IOException e) {
+            } catch (Exception e) {
+                if (!releasesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
+                    logError("No releases found with this version");
                 return false;
             }
         }
         return false;
     }
 
+    /**
+     * Method to install the new version. <br>
+     * After the installation of the correct executable file will be closed the application and launch that executable
+     * to install the new version <br>
+     * No-any params required
+     *
+     * @apiNote will be invoked {@link #installAndRunExecutable(String, String)} to perform this task
+     */
     public void installNewVersion() {
         OS currentOs = getCurrentOs();
-        if(currentOs != null) {
+        if (currentOs != null) {
             String downloadUrl = null;
             String executableSuffix = null;
             boolean foundCorrectExecutable = false;
             ArrayList<ReleaseAsset> assets = lastRelease.getAssets();
-            for(int j = 0; j < assets.size() && !foundCorrectExecutable; j++) {
+            for (int j = 0; j < assets.size() && !foundCorrectExecutable; j++) {
                 ReleaseAsset asset = assets.get(j);
                 downloadUrl = asset.getBrowserDownloadUrl();
                 executableSuffix = new StringBuilder(new StringBuilder(downloadUrl).reverse().toString()
                         .split("\\.")[0]).reverse().toString();
                 switch (currentOs) {
                     case LINUX -> {
-                        if(isLinuxExecutable(executableSuffix))
+                        if (isLinuxExecutable(executableSuffix))
                             foundCorrectExecutable = true;
                     }
                     case WINDOWS -> {
-                        if(isWindowsExecutable(executableSuffix))
+                        if (isWindowsExecutable(executableSuffix))
                             foundCorrectExecutable = true;
                     }
                     case MACOS -> {
-                        if(isMacOsExecutable(executableSuffix))
+                        if (isMacOsExecutable(executableSuffix))
                             foundCorrectExecutable = true;
                     }
                 }
@@ -104,10 +179,16 @@ public class KDUWorker {
         }
     }
 
+    /**
+     * Method to effectively install and run the executable for the installation
+     *
+     * @param downloadUrl: the url to download the executable
+     * @param executableSuffix: the suffix of the executable: appimage, deb, rmp, dkg, pkg, exe or msi
+     */
     private void installAndRunExecutable(String downloadUrl, String executableSuffix) {
-        if(downloadUrl != null) {
+        if (downloadUrl != null) {
             try {
-                if(isDesktopSupported()) {
+                if (isDesktopSupported()) {
                     executor.execute(() -> {
                         executablePath = System.getProperty("user.home") + "/Downloads/" + appName + "-"
                                 + lastRelease.getTagName() + "." + executableSuffix;
@@ -115,7 +196,8 @@ public class KDUWorker {
                             File executable = downloadFile(downloadUrl, executablePath, true);
                             desktop.open(executable);
                             exit(0);
-                        } catch (IOException ignored) {}
+                        } catch (IOException ignored) {
+                        }
                     });
                 } else {
                     desktop.browse(URI.create(downloadUrl));
@@ -126,6 +208,10 @@ public class KDUWorker {
         }
     }
 
+    /**
+     * Method to stop the current installation, will be also deleted the executable file if has been already saved <br>
+     * No-any params required
+     */
     public void stopInstallation() {
         executor.shutdown();
         try {
@@ -139,12 +225,36 @@ public class KDUWorker {
         service.execute(() -> {
             File executableFile = new File(executablePath);
             if (executableFile.exists()) {
-                while (!executableFile.delete());
+                while (!executableFile.delete()) ;
                 executablePath = null;
             }
         });
     }
 
+    /**
+     * Method to log an error on run console
+     * @param error: the error to log
+     */
+    public static void logError(String error) {
+        logMessage(error, RED);
+    }
+
+    /**
+     * Method to log a message on run console
+     * @param message: the message to log
+     */
+    public static void logMessage(String message, ANSIColor color) {
+        if (!message.startsWith(" "))
+            message = " " + message;
+        painter.printBold("[OctocatKDU - " + getDate(System.currentTimeMillis()) + "]:" + message, color);
+    }
+
+    /**
+     * Method to get the current OS where the application is running <br>
+     * No-any params required
+     *
+     * @return the current OS where the application is running instance as {@link OS}
+     */
     private OS getCurrentOs() {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win"))
@@ -156,21 +266,43 @@ public class KDUWorker {
         return null;
     }
 
+    /**
+     * Method to get whether the suffix argument is correct for Linux
+     * @param suffix: the suffix to check
+     * @return whether the suffix argument is correct for Linux as boolean
+     */
     private boolean isLinuxExecutable(String suffix) {
         return suffix.equals("appimage") || suffix.equals("deb") || suffix.equals("rpm");
     }
 
+    /**
+     * Method to get whether the suffix argument is correct for Windows
+     * @param suffix: the suffix to check
+     * @return whether the suffix argument is correct for Windows as boolean
+     */
     private boolean isWindowsExecutable(String suffix) {
         return suffix.equals("exe") || suffix.equals("msi");
     }
 
+    /**
+     * Method to get whether the suffix argument is correct for macOS
+     * @param suffix: the suffix to check
+     * @return whether the suffix argument is correct for macOS as boolean
+     */
     private boolean isMacOsExecutable(String suffix) {
         return suffix.equals("dmg") || suffix.equals("pkg");
     }
 
+    /**
+     * Method to get the latest version code <br>
+     * No-any params required
+     *
+     * @return the latest version code as {@link String}
+     */
     public String getLastVersionCode() {
-        if(lastRelease == null)
+        if (lastRelease == null)
             return null;
         return " v. " + lastRelease.getTagName();
     }
+
 }
