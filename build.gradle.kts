@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     id("org.jetbrains.compose")
+    id("maven-publish")
 }
 
 group = "com.tecknobit"
@@ -20,4 +21,17 @@ dependencies {
     implementation("com.github.N7ghtm4r3:APIManager:2.2.1")
     implementation("com.github.N7ghtm4r3:Mantis:1.0.0")
     implementation("org.json:json:20230227")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "com.tecknobit.octocatkdu"
+                artifactId = "OctocatKDU"
+                version = "1.0.0"
+                from(components["java"])
+            }
+        }
+    }
 }
