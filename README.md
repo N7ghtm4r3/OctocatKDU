@@ -161,6 +161,20 @@ The customization can be both with the faker and with the real dialog
     textFontFamily = // the font family for the text of the dialog,
   )
   ```
+#### Release distribution
+
+> [!IMPORTANT]  
+>  When you need to create the release distribution you must insert in the **compose-desktop.pro** file this proguard setting
+>  to correctly run the distribution:
+> 
+> ```txt 
+> -keepclassmembers enum * { 
+>    public static **[] values();
+>    public static ** valueOf(java.lang.String);
+> }
+> ```
+
+
 
 ## Appearance (default application theme)
 
