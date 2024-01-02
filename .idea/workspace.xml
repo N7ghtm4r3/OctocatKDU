@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Hide the personal access token">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Fixed some issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
     </list>
@@ -109,7 +109,7 @@
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]">
+  <component name="RunManager" selected="Gradle.OctocatKDU [clean]">
     <configuration name="OctocatKDU [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -163,9 +163,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.OctocatKDU [clean]" />
         <item itemvalue="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]" />
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.OctocatKDU [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -282,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704210157042</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed some issues">
+      <option name="closed" value="true" />
+      <created>1704212561568</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704212561568</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -294,6 +302,7 @@
     <MESSAGE value="Finished the dialogs!" />
     <MESSAGE value="Documented the code" />
     <MESSAGE value="Hide the personal access token" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hide the personal access token" />
+    <MESSAGE value="Fixed some issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some issues" />
   </component>
 </project>
