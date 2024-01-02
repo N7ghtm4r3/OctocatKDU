@@ -15,12 +15,9 @@ repositories {
 }
 
 dependencies {
-    // Note, if you develop a library, you should use compose.desktop.common.
-    // compose.desktop.currentOs should be used in launcher-sourceSet
-    // (in a separate module for demo project and in testMain).
-    // With compose.desktop.common you will also lose @Preview functionality
-    implementation(compose.desktop.currentOs)
+    implementation(compose.desktop.common)
     implementation("com.github.N7ghtm4r3:GitHubManager:1.0.0")
     implementation("com.github.N7ghtm4r3:APIManager:2.2.1")
     implementation("com.github.N7ghtm4r3:Mantis:1.0.0")
+    implementation("org.json:json:20230227")
 }

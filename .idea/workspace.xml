@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Documented the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +95,12 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\images" />
+      <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU" />
+    </key>
+  </component>
   <component name="RunManager" selected="Gradle.OctocatKDU [clean]">
     <configuration name="OctocatKDU [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -209,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704194491441</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Documented the code">
+      <option name="closed" value="true" />
+      <created>1704195118904</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704195118904</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

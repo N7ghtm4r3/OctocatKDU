@@ -1,5 +1,6 @@
 import com.tecknobit.apimanager.apis.ConsolePainter;
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor;
+import com.tecknobit.apimanager.formatters.JsonHelper;
 import com.tecknobit.githubmanager.releases.releaseassets.records.ReleaseAsset;
 import com.tecknobit.githubmanager.releases.releases.GitHubReleasesManager;
 import com.tecknobit.githubmanager.releases.releases.records.Release;
@@ -7,8 +8,7 @@ import com.tecknobit.githubmanager.repositories.repositories.GitHubRepositoriesM
 import com.tecknobit.githubmanager.repositories.repositories.records.Repository;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
@@ -54,6 +54,14 @@ public class KDUWorker {
     }
 
     /**
+     * {@code OCTOCAT_KDU_CONFIGS_PATH} the path where are stored the credentials for the GitHub
+     * application repository
+     *
+     * @apiNote you must keep this file safe and not share in public repositories, but keep in local
+     */
+    public static final String OCTOCAT_KDU_CONFIGS_PATH = "octocat_kdu.config";
+
+    /**
      * {@code desktop} the current desktop environment where the application is running
      */
     private static final Desktop desktop = Desktop.getDesktop();
@@ -96,29 +104,52 @@ public class KDUWorker {
     /**
      * Constructor to init the {@link KDUWorker} class
      *
-     * @param accessToken: personal access token for authentication
-     * @param owner: the account owner of the repository
-     * @param repo: the name of the repository
      * @param appName:{@code appName} the name of the application where the dialog will be shown
      *
      */
-    public KDUWorker(String accessToken, String owner, String repo, String appName) {
-        releasesManager = new GitHubReleasesManager(accessToken);
-        GitHubRepositoriesManager repositoriesManager = new GitHubRepositoriesManager();
-        Repository repository;
-        Release lastRelease;
+    public KDUWorker(String appName) {
         try {
-            repository = repositoriesManager.getRepository(owner, repo);
-            lastRelease = releasesManager.getLatestRelease(repository);
-        } catch (Exception e) {
-            if (!repositoriesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
-                logError("Incorrect repository data");
-            repository = null;
-            lastRelease = null;
+            JsonHelper config = getConfig();
+            String accessToken = config.getString("personal_access_token", "");
+            String owner = config.getString("owner", "");
+            String repo = config.getString("repo", "");
+            releasesManager = new GitHubReleasesManager(accessToken);
+            GitHubRepositoriesManager repositoriesManager = new GitHubRepositoriesManager();
+            Repository repository;
+            Release lastRelease;
+            try {
+                repository = repositoriesManager.getRepository(owner, repo);
+                lastRelease = releasesManager.getLatestRelease(repository);
+            } catch (Exception e) {
+                if (!repositoriesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
+                    logError("Incorrect repository data");
+                repository = null;
+                lastRelease = null;
+            }
+            this.repository = repository;
+            this.lastRelease = lastRelease;
+            this.appName = appName;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        this.repository = repository;
-        this.lastRelease = lastRelease;
-        this.appName = appName;
+    }
+
+    /**
+     * Method to read the current resources stored from  and to load the
+     * instance <br>
+     * No-any params required
+     * @throws IOException when an error reading the resources file occurred
+     */
+    private JsonHelper getConfig() throws IOException {
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(OCTOCAT_KDU_CONFIGS_PATH);
+        if(inputStream == null)
+            throw new IOException(OCTOCAT_KDU_CONFIGS_PATH + " not found!\nYou must save in the resources folder");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        while ((line = bufferedReader.readLine()) != null)
+            stringBuilder.append(line);
+        return new JsonHelper(stringBuilder);
     }
 
     /**

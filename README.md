@@ -75,6 +75,31 @@ Add the JitPack repository to your build file
 
 ### Usage/Examples
 
+#### Resources file
+
+You must place the resource file, named **octocat_kdu.config**, in the resources folder of your application:
+
+> [!CAUTION]  
+> Note: you must keep this file safe and not share in public repositories, but keep in local to be included only in the 
+> executable file, because it contains sensitive data like the GitHub's personal access token 
+
+``` bash
+src
+|-- main
+    |-- resources
+    |   |-- octocat_kdu.config
+```
+
+Content example:
+
+```json
+{
+  "personal_access_token": "your_personal_access_token_for_github",
+  "owner": "owner_of_the_repository_of_the_application",
+  "repo": "the_repository_of_the_application"
+}
+```
+
 #### Testing purposes
 
 Use the fake updater dialog to testing the workflow of your application with the OctocatKDU

@@ -135,9 +135,6 @@ fun FakeUpdaterDialog(
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
- * @param accessToken: personal access token for authentication
- * @param owner: the account owner of the repository
- * @param repo: the name of the repository
  */
 @Wrapper
 @Composable
@@ -157,13 +154,10 @@ fun UpdaterDialog(
     textFontSize: TextUnit = 16.sp,
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null,
-    accessToken: String,
-    owner: String,
-    repo: String
+    textFontFamily: FontFamily? = null
 ) {
     val mantis = Mantis(locale)
-    val kduWorker = KDUWorker(accessToken, owner, repo, appName)
+    val kduWorker = KDUWorker(appName)
     val isInstalling = remember { mutableStateOf(false) }
     if(kduWorker.canBeUpdated(currentVersion)) {
         KDUDialog(
