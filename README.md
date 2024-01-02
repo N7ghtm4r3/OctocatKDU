@@ -138,6 +138,10 @@ The customization can be both with the faker and with the real dialog
   )
   ```
 
+## Appearance (default application theme)
+
+![UI appearance](https://github.com/N7ghtm4r3/OctocatKDU/blob/main/images/ui.png)
+
 ## Authors
 
 - [@N7ghtm4r3](https://www.github.com/N7ghtm4r3)
