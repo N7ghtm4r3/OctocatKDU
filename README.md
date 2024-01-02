@@ -117,10 +117,7 @@ Use the real updater dialog in the release
 ```kotlin
 UpdaterDialog(
   appName = "MyApplication",
-  currentVersion = "current_version_of_the_application",
-  accessToken = "your_github_access_token",
-  owner = "owner_of_the_repository",
-  repo = "repository_of_the_application"
+  currentVersion = "current_version_of_the_application"
 )
 ```
 
