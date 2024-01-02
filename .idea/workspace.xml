@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Hide the personal access token">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,16 +96,20 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\images" />
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.OctocatKDU [clean]">
+  <component name="RunManager" selected="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]">
     <configuration name="OctocatKDU [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -158,9 +163,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.OctocatKDU [clean]" />
         <item itemvalue="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.OctocatKDU [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704209381742</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Hide the personal access token">
+      <option name="closed" value="true" />
+      <created>1704210157042</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704210157042</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

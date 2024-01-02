@@ -121,6 +121,9 @@ public class KDUWorker {
                 repository = repositoriesManager.getRepository(owner, repo);
                 lastRelease = releasesManager.getLatestRelease(repository);
             } catch (Exception e) {
+                e.printStackTrace();
+                repositoriesManager.printErrorResponse();
+                releasesManager.getErrorResponse();
                 if (!repositoriesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
                     logError("Incorrect repository data");
                 repository = null;
@@ -163,6 +166,8 @@ public class KDUWorker {
                 Release currentRelease = releasesManager.getReleaseByTagName(repository, currentVersion);
                 return lastRelease.getCreatedAtTimestamp() > currentRelease.getCreatedAtTimestamp();
             } catch (Exception e) {
+                e.printStackTrace();
+                releasesManager.printErrorResponse();
                 if (!releasesManager.getErrorResponse().equals(DEFAULT_ERROR_RESPONSE))
                     logError("No releases found with this version");
                 return false;
