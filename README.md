@@ -75,13 +75,6 @@ Add the JitPack repository to your build file
 </dependency>
 ```
 
-### Minimal requirements 
-
-``` properties
-kotlin.version=1.9.20
-compose.version=1.5.10
-```
-
 ### Usage/Examples
 
 #### Resources file
