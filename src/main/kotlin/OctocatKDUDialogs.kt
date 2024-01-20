@@ -5,10 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.LinearProgressIndicator
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -211,6 +208,7 @@ fun UpdaterDialog(
  * @param dismissAction: the action to execute when the dismiss button has been clicked
  * @param confirmAction: the action to execute when the confirm button has been clicked
  */
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun KDUDialog(
     locale: Locale = Locale.getDefault(),

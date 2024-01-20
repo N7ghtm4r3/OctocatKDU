@@ -1,6 +1,6 @@
 # OctocatKDU
 
-**v1.0.0**
+**v1.0.1**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
@@ -38,7 +38,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.0'
+        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.1'
     }
     ```
 
@@ -46,7 +46,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.0")
+        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.1")
     }
     ```
 
@@ -71,8 +71,14 @@ Add the JitPack repository to your build file
 <dependency>
   <groupId>com.github.N7ghtm4r3</groupId>
   <artifactId>OctocatKDU</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
+```
+### Latest supported property configuration
+
+``` properties
+kotlin.version=1.8.0
+compose.version=1.4.2
 ```
 
 ### Usage/Examples
@@ -174,8 +180,6 @@ The customization can be both with the faker and with the real dialog
 > }
 > ```
 
-
-
 ## Appearance (default application theme)
 
 ![UI appearance](https://github.com/N7ghtm4r3/OctocatKDU/blob/main/images/ui.png)
@@ -220,4 +224,4 @@ If you want support project and developer
 
 If you want support project and developer with <a href="https://www.paypal.com/donate/?hosted_button_id=5QMN5UQH7LDT4">PayPal</a>
 
-Copyright © 2023 Tecknobit
+Copyright © 2024 Tecknobit
