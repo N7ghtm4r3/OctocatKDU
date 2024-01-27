@@ -1,6 +1,6 @@
 # OctocatKDU
 
-**v1.0.1**
+**v1.0.2**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
@@ -38,7 +38,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.1'
+        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.2'
     }
     ```
 
@@ -46,7 +46,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.1")
+        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.2")
     }
     ```
 
@@ -71,7 +71,7 @@ Add the JitPack repository to your build file
 <dependency>
   <groupId>com.github.N7ghtm4r3</groupId>
   <artifactId>OctocatKDU</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 ### Latest supported property configuration
@@ -114,7 +114,10 @@ Use the fake updater dialog to testing the workflow of your application with the
 
 ```kotlin
 FakeUpdaterDialog(
-  appName = "MyApplication"
+  appName = "MyApplication",
+  dismissAction = {
+      // the rest of the application flow
+  }
 )
 ```
 
@@ -125,7 +128,10 @@ Use the real updater dialog in the release
 ```kotlin
 UpdaterDialog(
   appName = "MyApplication",
-  currentVersion = "current_version_of_the_application"
+  currentVersion = "current_version_of_the_application",
+  dismissAction = {
+    // the rest of the application flow
+  }
 )
 ```
 
@@ -140,7 +146,10 @@ The customization can be both with the faker and with the real dialog
   ```kotlin
   MyApplicationTheme {
     FakeUpdaterDialog(
-      appName = "MyApplication"
+      appName = "MyApplication",
+      dismissAction = {
+          // the rest of the application flow
+      }
     )
   }
   ```

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Fixed some issues">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Work on 1.0.2 update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +68,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="1ed13b2b-5ab1-4376-b8e7-a4ed9035e641" />
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -98,7 +103,7 @@
     &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;u1.0.2&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -168,8 +173,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.OctocatKDU [clean]" />
-        <item itemvalue="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +315,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704234428381</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Use different properties configuration">
+      <option name="closed" value="true" />
+      <created>1705759557043</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1705759557043</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Work on 1.0.2 update">
+      <option name="closed" value="true" />
+      <created>1706212793418</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1706212793418</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -323,6 +344,8 @@
     <MESSAGE value="Documented the code" />
     <MESSAGE value="Hide the personal access token" />
     <MESSAGE value="Fixed some issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some issues" />
+    <MESSAGE value="Use different properties configuration" />
+    <MESSAGE value="Work on 1.0.2 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on 1.0.2 update" />
   </component>
 </project>

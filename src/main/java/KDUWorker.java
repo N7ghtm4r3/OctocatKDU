@@ -333,7 +333,7 @@ public class KDUWorker {
     public String getLastVersionCode() {
         if (lastRelease == null)
             return null;
-        return " v. " + lastRelease.getTagName();
+        return "v. " + lastRelease.getTagName();
     }
 
 }

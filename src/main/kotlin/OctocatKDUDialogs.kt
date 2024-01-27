@@ -26,6 +26,7 @@ import kotlin.system.exitProcess
 /**
  * Function to create the fake update dialog for testing purposes
  *
+ * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
  * @param locale: the locale language to use
  * @param shape: the shape of the [AlertDialog]
  * @param appName: the name of the application where the dialog will be shown
@@ -42,10 +43,13 @@ import kotlin.system.exitProcess
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param dismissAction: the action to execute when the dismiss button has been clicked,
+ * note this action will be invoked also if the dialog are not displayed
  */
 @Wrapper
 @Composable
 fun FakeUpdaterDialog(
+    dialogModifier: Modifier = Modifier,
     locale: Locale = Locale.getDefault(),
     shape: Shape = RoundedCornerShape(15.dp),
     appName: String,
@@ -61,13 +65,15 @@ fun FakeUpdaterDialog(
     textFontSize: TextUnit = 16.sp,
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null
+    textFontFamily: FontFamily? = null,
+    dismissAction: () -> Unit
 ) {
     val mantis = Mantis(locale)
     var timer = Timer()
     val isInstalling = remember { mutableStateOf(false) }
     if(showFakeUpdate) {
         KDUDialog(
+            dialogModifier = dialogModifier,
             locale = locale,
             shape = shape,
             isInstalling = isInstalling,
@@ -90,6 +96,7 @@ fun FakeUpdaterDialog(
                     mantis.getResource("no_update_log_key"),
                     YELLOW
                 )
+                dismissAction.invoke()
             },
             confirmAction = {
                 if(!isInstalling.value) {
@@ -109,12 +116,14 @@ fun FakeUpdaterDialog(
                 }
             },
         )
-    }
+    } else
+        dismissAction.invoke()
 }
 
 /**
  * Function to create the update dialog to update the application to the latest release
  *
+ * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
  * @param locale: the locale language to use
  * @param shape: the shape of the [AlertDialog]
  * @param appName: the name of the application where the dialog will be shown
@@ -132,10 +141,13 @@ fun FakeUpdaterDialog(
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param dismissAction: the action to execute when the dismiss button has been clicked,
+ * note this action will be invoked also if the dialog are not displayed
  */
 @Wrapper
 @Composable
 fun UpdaterDialog(
+    dialogModifier: Modifier = Modifier,
     locale: Locale = Locale.getDefault(),
     shape: Shape = RoundedCornerShape(15.dp),
     appName: String,
@@ -151,13 +163,15 @@ fun UpdaterDialog(
     textFontSize: TextUnit = 16.sp,
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null
+    textFontFamily: FontFamily? = null,
+    dismissAction: () -> Unit = {}
 ) {
     val mantis = Mantis(locale)
     val kduWorker = KDUWorker(appName)
     val isInstalling = remember { mutableStateOf(false) }
     if(kduWorker.canBeUpdated(currentVersion)) {
         KDUDialog(
+            dialogModifier = dialogModifier,
             locale = locale,
             shape = shape,
             isInstalling = isInstalling,
@@ -175,6 +189,7 @@ fun UpdaterDialog(
             textFontStyle = textFontStyle,
             textFontWeight = textFontWeight,
             textFontFamily = textFontFamily,
+            dismissAction = dismissAction,
             confirmAction = {
                 if(!isInstalling.value)
                     kduWorker.installNewVersion()
@@ -182,24 +197,26 @@ fun UpdaterDialog(
                     kduWorker.stopInstallation()
             },
         )
-    }
+    } else
+        dismissAction.invoke()
 }
 
 /**
  * Function to create the update dialog to update the application to the latest release
  *
+ * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
  * @param locale: the locale language to use
  * @param shape: the shape of the [AlertDialog]
  * @param isInstalling: the current status of the dialog
  * @param title: the title of the [AlertDialog]
  * @param appName: the name of the application where the dialog will be shown
- * @param titleModifier: the modifier for the title of the [AlertDialog]
+ * @param titleModifier: the dialogModifier for the title of the [AlertDialog]
  * @param titleColor: the color of the title of the [AlertDialog]
  * @param titleFontSize: the font size for the title of the [AlertDialog]
  * @param titleFontStyle: the font style for the title of the [AlertDialog]
  * @param titleFontWeight: the font weight for the title of the [AlertDialog]
  * @param titleFontFamily: the font family for the title of the [AlertDialog]
- * @param textModifier: the modifier for the text of the [AlertDialog]
+ * @param textModifier: the dialogModifier for the text of the [AlertDialog]
  * @param textColor: the color of the text of the [AlertDialog]
  * @param textFontSize: the font size for the text of the [AlertDialog]
  * @param textFontStyle: the font style for the text of the [AlertDialog]
@@ -211,6 +228,7 @@ fun UpdaterDialog(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun KDUDialog(
+    dialogModifier: Modifier = Modifier,
     locale: Locale = Locale.getDefault(),
     shape: Shape,
     isInstalling: MutableState<Boolean>,
@@ -235,6 +253,7 @@ private fun KDUDialog(
     var show by remember { mutableStateOf(true) }
     if(show) {
         AlertDialog(
+            modifier = dialogModifier,
             onDismissRequest = { show = false },
             shape = shape,
             title = {
