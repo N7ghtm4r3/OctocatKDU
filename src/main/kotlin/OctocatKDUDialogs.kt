@@ -43,6 +43,8 @@ import kotlin.system.exitProcess
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param dismissAction: the action to execute when the dismiss button has been clicked,
+ * note this action will be invoked also if the dialog are not displayed
  */
 @Wrapper
 @Composable
@@ -63,7 +65,8 @@ fun FakeUpdaterDialog(
     textFontSize: TextUnit = 16.sp,
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null
+    textFontFamily: FontFamily? = null,
+    dismissAction: () -> Unit
 ) {
     val mantis = Mantis(locale)
     var timer = Timer()
@@ -93,6 +96,7 @@ fun FakeUpdaterDialog(
                     mantis.getResource("no_update_log_key"),
                     YELLOW
                 )
+                dismissAction.invoke()
             },
             confirmAction = {
                 if(!isInstalling.value) {
@@ -112,7 +116,8 @@ fun FakeUpdaterDialog(
                 }
             },
         )
-    }
+    } else
+        dismissAction.invoke()
 }
 
 /**
@@ -136,6 +141,8 @@ fun FakeUpdaterDialog(
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param dismissAction: the action to execute when the dismiss button has been clicked,
+ * note this action will be invoked also if the dialog are not displayed
  */
 @Wrapper
 @Composable
@@ -156,7 +163,8 @@ fun UpdaterDialog(
     textFontSize: TextUnit = 16.sp,
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null
+    textFontFamily: FontFamily? = null,
+    dismissAction: () -> Unit = {}
 ) {
     val mantis = Mantis(locale)
     val kduWorker = KDUWorker(appName)
@@ -181,6 +189,7 @@ fun UpdaterDialog(
             textFontStyle = textFontStyle,
             textFontWeight = textFontWeight,
             textFontFamily = textFontFamily,
+            dismissAction = dismissAction,
             confirmAction = {
                 if(!isInstalling.value)
                     kduWorker.installNewVersion()
@@ -188,7 +197,8 @@ fun UpdaterDialog(
                     kduWorker.stopInstallation()
             },
         )
-    }
+    } else
+        dismissAction.invoke()
 }
 
 /**

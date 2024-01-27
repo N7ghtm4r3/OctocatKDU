@@ -114,7 +114,10 @@ Use the fake updater dialog to testing the workflow of your application with the
 
 ```kotlin
 FakeUpdaterDialog(
-  appName = "MyApplication"
+  appName = "MyApplication",
+  dismissAction = {
+      // the rest of the application flow
+  }
 )
 ```
 
@@ -125,7 +128,10 @@ Use the real updater dialog in the release
 ```kotlin
 UpdaterDialog(
   appName = "MyApplication",
-  currentVersion = "current_version_of_the_application"
+  currentVersion = "current_version_of_the_application",
+  dismissAction = {
+    // the rest of the application flow
+  }
 )
 ```
 
@@ -140,7 +146,10 @@ The customization can be both with the faker and with the real dialog
   ```kotlin
   MyApplicationTheme {
     FakeUpdaterDialog(
-      appName = "MyApplication"
+      appName = "MyApplication",
+      dismissAction = {
+          // the rest of the application flow
+      }
     )
   }
   ```

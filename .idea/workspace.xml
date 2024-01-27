@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Use different properties configuration">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Work on 1.0.2 update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -325,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705759557043</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Work on 1.0.2 update">
+      <option name="closed" value="true" />
+      <created>1706212793418</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1706212793418</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -339,6 +345,7 @@
     <MESSAGE value="Hide the personal access token" />
     <MESSAGE value="Fixed some issues" />
     <MESSAGE value="Use different properties configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use different properties configuration" />
+    <MESSAGE value="Work on 1.0.2 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on 1.0.2 update" />
   </component>
 </project>
