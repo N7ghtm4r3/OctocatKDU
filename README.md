@@ -216,12 +216,6 @@ Thank you for your help!
 
 [![](https://jitpack.io/v/N7ghtm4r3/OctocatKDU.svg)](https://jitpack.io/#N7ghtm4r3/OctocatKDU)
 
-## Business contact
-
-If you need to contact me for a project
-
-[![](https://img.shields.io/badge/fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white)](https://www.fiverr.com/manuel_maurizio)
-
 ## Donations
 
 If you want support project and developer
