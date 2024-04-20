@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Work on 1.0.2 update">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Optimized the flow of the updater dialog">
+      <change afterPath="$PROJECT_DIR$/src/main/composeResources/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/resources.mantis" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,21 +99,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build OctocatKDU.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OctocatKDU [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;u1.0.2&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build OctocatKDU.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.OctocatKDU [clean].executor": "Run",
+    "Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.github.airsaid.androidlocalize.is_select_all": "true",
+    "com.github.airsaid.androidlocalize.selected_languages": "94,9,104,33,15,29,119,118,6,20,18,16,87,90,98,63,39,41,11,120,121,43,17,70,71,85,64,80,83",
+    "git-widget-placeholder": "e1.0.3",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources",
+    "settings.editor.selected.configurable": "com.airsaid.localization.config.SettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\src\main\resources" />
@@ -331,8 +338,27 @@
       <option name="project" value="LOCAL" />
       <updated>1706212793418</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Optimized the flow of the updater dialog">
+      <option name="closed" value="true" />
+      <created>1706349742100</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1706349742100</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Link commit!" />
@@ -346,6 +372,7 @@
     <MESSAGE value="Fixed some issues" />
     <MESSAGE value="Use different properties configuration" />
     <MESSAGE value="Work on 1.0.2 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on 1.0.2 update" />
+    <MESSAGE value="Optimized the flow of the updater dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized the flow of the updater dialog" />
   </component>
 </project>

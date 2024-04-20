@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Galima įsigyti naują versiją</string>
+    <string name="text_part_two_key">, atnaujinti ar išsaugoti šią versiją</string>
+    <string name="no_update_key">Neatnaujinkite</string>
+    <string name="text_part_one_key">Yra nauja versija, skirta</string>
+    <string name="update_key">Atnaujinti</string>
+    <string name="installing_executable_text_key">Naujos versijos diegimas...</string>
+    <string name="dismiss_key">Atšaukti</string>
+    <string name="installing_text_key">Naujos versijos diegimas</string>
+</resources>

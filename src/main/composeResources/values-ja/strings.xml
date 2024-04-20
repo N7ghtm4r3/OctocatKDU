@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">新バージョン</string>
+    <string name="text_part_two_key">アップデートするか、このバージョンを維持するか？</string>
+    <string name="no_update_key">更新しない</string>
+    <string name="text_part_one_key">には新しいバージョンが用意されている。</string>
+    <string name="update_key">更新</string>
+    <string name="installing_executable_text_key">新バージョンのインストール...</string>
+    <string name="dismiss_key">キャンセル</string>
+    <string name="installing_text_key">新バージョンのインストール</string>
+</resources>

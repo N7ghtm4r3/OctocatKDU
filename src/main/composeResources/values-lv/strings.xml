@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Pieejama jauna versija</string>
+    <string name="text_part_two_key">, atjaunināt vai saglabāt šo versiju</string>
+    <string name="no_update_key">Neatjaunināt</string>
+    <string name="text_part_one_key">Ir pieejama jauna versija</string>
+    <string name="update_key">Atjaunināt</string>
+    <string name="installing_executable_text_key">Jaunās versijas instalēšana...</string>
+    <string name="dismiss_key">Atcelt</string>
+    <string name="installing_text_key">Jaunās versijas instalēšana</string>
+</resources>

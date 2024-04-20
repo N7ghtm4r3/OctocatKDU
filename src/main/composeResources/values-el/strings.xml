@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Νέα έκδοση διαθέσιμη</string>
+    <string name="text_part_two_key">, να ενημερώσετε ή να διατηρήσετε αυτή την έκδοση;</string>
+    <string name="no_update_key">Μην ενημερώνετε</string>
+    <string name="text_part_one_key">Υπάρχει μια νέα έκδοση διαθέσιμη για</string>
+    <string name="update_key">Ενημέρωση</string>
+    <string name="installing_executable_text_key">Εγκατάσταση της νέας έκδοσης...</string>
+    <string name="dismiss_key">Ακύρωση</string>
+    <string name="installing_text_key">Εγκατάσταση της νέας έκδοσης</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Ny version tilgængelig</string>
+    <string name="text_part_two_key">opdatere eller beholde denne version</string>
+    <string name="no_update_key">Opdater ikke</string>
+    <string name="text_part_one_key">Der er en ny version tilgængelig til</string>
+    <string name="update_key">Opdatering</string>
+    <string name="installing_executable_text_key">Installation af den nye version...</string>
+    <string name="dismiss_key">Annuller</string>
+    <string name="installing_text_key">Installation af den nye version</string>
+</resources>

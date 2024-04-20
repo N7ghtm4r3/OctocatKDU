@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Nuova versione disponibile</string>
+    <string name="text_part_two_key">aggiornare o mantenere questa versione</string>
+    <string name="no_update_key">Non aggiornare</string>
+    <string name="text_part_one_key">È disponibile una nuova versione per</string>
+    <string name="update_key">Aggiornamento</string>
+    <string name="installing_executable_text_key">Installazione della nuova versione...</string>
+    <string name="dismiss_key">Annullamento</string>
+    <string name="installing_text_key">Installazione della nuova versione</string>
+</resources>

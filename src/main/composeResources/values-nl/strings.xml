@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Nieuwe versie beschikbaar</string>
+    <string name="text_part_two_key">deze versie bijwerken of behouden</string>
+    <string name="no_update_key">Niet bijwerken</string>
+    <string name="text_part_one_key">Er is een nieuwe versie beschikbaar voor</string>
+    <string name="update_key">Update</string>
+    <string name="installing_executable_text_key">De nieuwe versie installeren...</string>
+    <string name="dismiss_key">Annuleren</string>
+    <string name="installing_text_key">De nieuwe versie installeren</string>
+</resources>

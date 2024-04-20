@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">K dispozici je nová verze</string>
+    <string name="text_part_two_key">, aktualizovat nebo ponechat tuto verzi</string>
+    <string name="no_update_key">Neaktualizujte</string>
+    <string name="text_part_one_key">K dispozici je nová verze pro</string>
+    <string name="update_key">Aktualizace</string>
+    <string name="installing_executable_text_key">Instalace nové verze...</string>
+    <string name="dismiss_key">Zrušit</string>
+    <string name="installing_text_key">Instalace nové verze</string>
+</resources>

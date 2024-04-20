@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Versi baru tersedia</string>
+    <string name="text_part_two_key">memperbarui atau mempertahankan versi ini</string>
+    <string name="no_update_key">Jangan perbarui</string>
+    <string name="text_part_one_key">Ada versi baru yang tersedia untuk</string>
+    <string name="update_key">Memperbarui</string>
+    <string name="installing_executable_text_key">Menginstal versi baru...</string>
+    <string name="dismiss_key">Batal</string>
+    <string name="installing_text_key">Menginstal versi baru</string>
+</resources>

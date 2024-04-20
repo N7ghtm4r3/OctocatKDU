@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Noua versiune disponibilă</string>
+    <string name="text_part_two_key">, actualizați sau păstrați această versiune</string>
+    <string name="no_update_key">Nu actualizați</string>
+    <string name="text_part_one_key">Există o nouă versiune disponibilă pentru</string>
+    <string name="update_key">Actualizare</string>
+    <string name="installing_executable_text_key">Instalarea noii versiuni...</string>
+    <string name="dismiss_key">Anulează</string>
+    <string name="installing_text_key">Instalarea noii versiuni</string>
+</resources>

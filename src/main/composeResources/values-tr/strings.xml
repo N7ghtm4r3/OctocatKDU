@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Yeni sürüm mevcut</string>
+    <string name="text_part_two_key">güncellemek mi yoksa bu sürümü saklamak mı</string>
+    <string name="no_update_key">Güncellemeyin</string>
+    <string name="text_part_one_key">Aşağıdakiler için yeni bir sürüm mevcuttur</string>
+    <string name="update_key">Güncelleme</string>
+    <string name="installing_executable_text_key">Yeni sürüm yükleniyor...</string>
+    <string name="dismiss_key">İptal</string>
+    <string name="installing_text_key">Yeni sürümün yüklenmesi</string>
+</resources>

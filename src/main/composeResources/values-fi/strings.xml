@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Uusi versio saatavilla</string>
+    <string name="text_part_two_key">, päivittää vai pitää tämä versio</string>
+    <string name="no_update_key">Älä päivitä</string>
+    <string name="text_part_one_key">Uusi versio on saatavilla</string>
+    <string name="update_key">Päivitys</string>
+    <string name="installing_executable_text_key">Uuden version asentaminen...</string>
+    <string name="dismiss_key">Peruuta</string>
+    <string name="installing_text_key">Uuden version asentaminen</string>
+</resources>

@@ -1,6 +1,6 @@
 # OctocatKDU
 
-**v1.0.2**
+**v1.0.3**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
@@ -38,7 +38,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.2'
+        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.3'
     }
     ```
 
@@ -46,7 +46,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.2")
+        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.3")
     }
     ```
 
@@ -71,7 +71,7 @@ Add the JitPack repository to your build file
 <dependency>
   <groupId>com.github.N7ghtm4r3</groupId>
   <artifactId>OctocatKDU</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 ### Latest supported property configuration

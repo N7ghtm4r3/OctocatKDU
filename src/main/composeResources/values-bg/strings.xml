@@ -1,0 +1,10 @@
+<resources>
+    <string name="title_key">Налична е нова версия</string>
+    <string name="text_part_two_key">, актуализирате или запазвате тази версия</string>
+    <string name="no_update_key">Не актуализирайте</string>
+    <string name="text_part_one_key">Налична е нова версия за</string>
+    <string name="update_key">Актуализация</string>
+    <string name="installing_executable_text_key">Инсталиране на новата версия...</string>
+    <string name="dismiss_key">Отмяна на</string>
+    <string name="installing_text_key">Инсталиране на новата версия</string>
+</resources>
