@@ -17,6 +17,7 @@ repositories {
 dependencies {
     implementation(compose.desktop.currentOs)
     implementation(compose.components.resources)
+    implementation(compose.material3)
     implementation("com.github.N7ghtm4r3:GitHubManager:1.0.0")
     implementation("com.github.N7ghtm4r3:APIManager:2.2.3")
     implementation("org.json:json:20230227")

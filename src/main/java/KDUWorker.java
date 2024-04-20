@@ -1,6 +1,8 @@
 import com.tecknobit.apimanager.apis.ConsolePainter;
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor;
+import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.apimanager.formatters.JsonHelper;
+import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.githubmanager.releases.releaseassets.records.ReleaseAsset;
 import com.tecknobit.githubmanager.releases.releases.GitHubReleasesManager;
 import com.tecknobit.githubmanager.releases.releases.records.Release;
@@ -17,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 import static com.tecknobit.apimanager.apis.APIRequest.DEFAULT_ERROR_RESPONSE;
 import static com.tecknobit.apimanager.apis.APIRequest.downloadFile;
 import static com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.RED;
-import static com.tecknobit.apimanager.formatters.TimeFormatter.getDate;
 import static java.awt.Desktop.isDesktopSupported;
 import static java.lang.System.exit;
 import static java.util.concurrent.Executors.newCachedThreadPool;
@@ -65,6 +66,11 @@ public class KDUWorker {
      * {@code desktop} the current desktop environment where the application is running
      */
     private static final Desktop desktop = Desktop.getDesktop();
+
+    /**
+     * {@code formatter} the helper to format the date values
+     */
+    private static final TimeFormatter formatter = TimeFormatter.getInstance();
 
     /**
      * {@code painter} instance to manage the console painter
@@ -141,7 +147,7 @@ public class KDUWorker {
      * @throws IOException when an error reading the resources file occurred
      */
     private JsonHelper getConfig() throws IOException {
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(OCTOCAT_KDU_CONFIGS_PATH);
+        InputStream inputStream = ResourcesUtils.getResourceStream(OCTOCAT_KDU_CONFIGS_PATH, this.getClass());
         if(inputStream == null)
             throw new IOException(OCTOCAT_KDU_CONFIGS_PATH + " not found!\nYou must save in the resources folder");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -277,7 +283,7 @@ public class KDUWorker {
     public static void logMessage(String message, ANSIColor color) {
         if (!message.startsWith(" "))
             message = " " + message;
-        painter.printBold("[OctocatKDU - " + getDate(System.currentTimeMillis()) + "]:" + message, color);
+        painter.printBold("[OctocatKDU - " + formatter.formatNowAsDate() + "]:" + message, color);
     }
 
     /**
