@@ -2,14 +2,14 @@
 
 import KDUWorker.logError
 import KDUWorker.logMessage
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mikepenz.markdown.m3.Markdown
 import com.tecknobit.apimanager.annotations.Wrapper
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.GREEN
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.YELLOW
@@ -71,13 +72,17 @@ private const val dismiss_update_log_key = "Simulated update canceled successful
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param releaseNotes: the notes of the release
  * @param dismissAction: the action to execute when the dismiss button has been clicked,
  * note this action will be invoked also if the dialog are not displayed
  */
 @Wrapper
 @Composable
 fun FakeUpdaterDialog(
-    dialogModifier: Modifier = Modifier,
+    dialogModifier: Modifier = Modifier
+        .heightIn(
+            max = 500.dp
+        ),
     locale: Locale = Locale.getDefault(),
     shape: Shape = RoundedCornerShape(15.dp),
     appName: String,
@@ -95,6 +100,7 @@ fun FakeUpdaterDialog(
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
     textFontFamily: FontFamily? = null,
+    releaseNotes: String? = null,
     dismissAction: () -> Unit
 ) {
     var timer = Timer()
@@ -120,6 +126,7 @@ fun FakeUpdaterDialog(
             textFontStyle = textFontStyle,
             textFontWeight = textFontWeight,
             textFontFamily = textFontFamily,
+            releaseNotes = releaseNotes,
             dismissAction = {
                 logMessage(
                     no_update_log_key,
@@ -177,7 +184,10 @@ fun FakeUpdaterDialog(
 @Wrapper
 @Composable
 fun UpdaterDialog(
-    dialogModifier: Modifier = Modifier,
+    dialogModifier: Modifier = Modifier
+        .heightIn(
+            max = 500.dp
+        ),
     locale: Locale = Locale.getDefault(),
     shape: Shape = RoundedCornerShape(15.dp),
     appName: String,
@@ -220,6 +230,7 @@ fun UpdaterDialog(
             textFontStyle = textFontStyle,
             textFontWeight = textFontWeight,
             textFontFamily = textFontFamily,
+            releaseNotes = kduWorker.releaseNotes,
             dismissAction = dismissAction,
             confirmAction = {
                 if(!isInstalling.value)
@@ -253,12 +264,13 @@ fun UpdaterDialog(
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param releaseNotes: the notes of the release
  * @param dismissAction: the action to execute when the dismiss button has been clicked
  * @param confirmAction: the action to execute when the confirm button has been clicked
  */
 @Composable
 private fun KDUDialog(
-    dialogModifier: Modifier = Modifier,
+    dialogModifier: Modifier,
     locale: Locale = Locale.getDefault(),
     shape: Shape,
     isInstalling: MutableState<Boolean>,
@@ -277,6 +289,7 @@ private fun KDUDialog(
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
     textFontFamily: FontFamily? = null,
+    releaseNotes: String? = null,
     dismissAction: () -> Unit = {},
     confirmAction: () -> Unit = {},
 ) {
@@ -301,28 +314,54 @@ private fun KDUDialog(
                 )
             },
             text = {
-                if(isInstalling.value) {
-                    Column (
-                        verticalArrangement = Arrangement.spacedBy(10.dp)
-                    ) {
+                Column {
+                    if(isInstalling.value) {
                         Text(
                             text = stringResource(string.installing_executable_text_key)
                         )
                         LinearProgressIndicator(
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    top = 10.dp
+                                )
                         )
+                    } else {
+                        Text(
+                            modifier = textModifier,
+                            text = "${stringResource(string.text_part_one_key)} $appName " +
+                                    stringResource(string.text_part_two_key),
+                            color = textColor,
+                            fontSize = textFontSize,
+                            fontStyle = textFontStyle,
+                            fontWeight = textFontWeight,
+                            fontFamily = textFontFamily
+                        )
+                        if(releaseNotes != null) {
+                            Text(
+                                modifier = Modifier
+                                    .padding(
+                                        top = 5.dp
+                                    ),
+                                text = stringResource(string.release_notes),
+                                fontSize = 20.sp
+                            )
+                            HorizontalDivider(
+                                modifier = Modifier
+                                    .padding(
+                                        top = 5.dp
+                                    )
+                            )
+                            Markdown(
+                                modifier = Modifier
+                                    .padding(
+                                        top = 5.dp
+                                    )
+                                    .verticalScroll(rememberScrollState()),
+                                content = releaseNotes
+                            )
+                        }
                     }
-                } else {
-                    Text(
-                        modifier = textModifier,
-                        text = "${stringResource(string.text_part_one_key)} $appName " +
-                                stringResource(string.text_part_two_key),
-                        color = textColor,
-                        fontSize = textFontSize,
-                        fontStyle = textFontStyle,
-                        fontWeight = textFontWeight,
-                        fontFamily = textFontFamily
-                    )
                 }
             },
             dismissButton = {

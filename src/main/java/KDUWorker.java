@@ -342,4 +342,16 @@ public class KDUWorker {
         return "v. " + lastRelease.getTagName();
     }
 
+    /**
+     * Method to get the latest version notes <br>
+     * No-any params required
+     *
+     * @return the latest version notes as {@link String}
+     */
+    public String getReleaseNotes() {
+        if (lastRelease == null)
+            return null;
+        return lastRelease.getBody();
+    }
+
 }

@@ -20,6 +20,7 @@ dependencies {
     implementation(compose.material3)
     implementation("com.github.N7ghtm4r3:GitHubManager:1.0.0")
     implementation("com.github.N7ghtm4r3:APIManager:2.2.3")
+    implementation("com.mikepenz:multiplatform-markdown-renderer-m3:0.14.0")
     implementation("org.json:json:20230227")
 }
 
