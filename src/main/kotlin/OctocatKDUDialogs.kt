@@ -2,15 +2,13 @@
 
 import KDUWorker.logError
 import KDUWorker.logMessage
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -73,6 +71,8 @@ private const val dismiss_update_log_key = "Simulated update canceled successful
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
  * @param releaseNotes: the notes of the release
+ * @param notShowAtNextLaunchOption: whether enable the option for the user to not display, so not be warned about a new
+ * update, at the next launches
  * @param dismissAction: the action to execute when the dismiss button has been clicked,
  * note this action will be invoked also if the dialog are not displayed
  */
@@ -101,6 +101,7 @@ fun FakeUpdaterDialog(
     textFontWeight: FontWeight? = null,
     textFontFamily: FontFamily? = null,
     releaseNotes: String? = null,
+    notShowAtNextLaunchOption: Boolean = false,
     dismissAction: () -> Unit
 ) {
     var timer = Timer()
@@ -127,6 +128,7 @@ fun FakeUpdaterDialog(
             textFontWeight = textFontWeight,
             textFontFamily = textFontFamily,
             releaseNotes = releaseNotes,
+            notShowAtNextLaunchOption = notShowAtNextLaunchOption,
             dismissAction = {
                 logMessage(
                     no_update_log_key,
@@ -178,6 +180,8 @@ fun FakeUpdaterDialog(
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ * @param notShowAtNextLaunchOption: whether enable the option for the user to not display, so not be warned about a new
+ * update, at the next launches
  * @param dismissAction: the action to execute when the dismiss button has been clicked,
  * note this action will be invoked also if the dialog are not displayed
  */
@@ -205,6 +209,7 @@ fun UpdaterDialog(
     textFontStyle: FontStyle? = null,
     textFontWeight: FontWeight? = null,
     textFontFamily: FontFamily? = null,
+    notShowAtNextLaunchOption: Boolean = false,
     dismissAction: () -> Unit = {}
 ) {
     val kduWorker = KDUWorker(appName)
@@ -231,6 +236,7 @@ fun UpdaterDialog(
             textFontWeight = textFontWeight,
             textFontFamily = textFontFamily,
             releaseNotes = kduWorker.releaseNotes,
+            notShowAtNextLaunchOption = notShowAtNextLaunchOption,
             dismissAction = dismissAction,
             confirmAction = {
                 if(!isInstalling.value)
@@ -265,6 +271,8 @@ fun UpdaterDialog(
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
  * @param releaseNotes: the notes of the release
+ * @param notShowAtNextLaunchOption: whether enable the option for the user to not display, so not be warned about a new
+ * update, at the next launches
  * @param dismissAction: the action to execute when the dismiss button has been clicked
  * @param confirmAction: the action to execute when the confirm button has been clicked
  */
@@ -290,6 +298,7 @@ private fun KDUDialog(
     textFontWeight: FontWeight? = null,
     textFontFamily: FontFamily? = null,
     releaseNotes: String? = null,
+    notShowAtNextLaunchOption: Boolean = false,
     dismissAction: () -> Unit = {},
     confirmAction: () -> Unit = {},
 ) {
@@ -355,11 +364,39 @@ private fun KDUDialog(
                             Markdown(
                                 modifier = Modifier
                                     .padding(
-                                        top = 5.dp
+                                        top = 5.dp,
+                                        bottom = 10.dp
+                                    )
+                                    .fillMaxHeight(
+                                        if(notShowAtNextLaunchOption)
+                                            .9f
+                                        else
+                                            1f
                                     )
                                     .verticalScroll(rememberScrollState()),
                                 content = releaseNotes
                             )
+                        }
+                        if(notShowAtNextLaunchOption) {
+                            //TODO: GET THE REAL INITIAL VALUE FROM PREFERENCES
+                            var hideDialog by remember { mutableStateOf(false) }
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                Checkbox(
+                                    checked = hideDialog,
+                                    onCheckedChange = {
+                                        hideDialog = it
+                                        //TODO: MAKE THE REAL WORKFLOW
+                                    }
+                                )
+                                Text(
+                                    text = stringResource(Res.string.not_show_at_next_launch)
+                                )
+                            }
                         }
                     }
                 }

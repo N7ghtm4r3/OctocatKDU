@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">Installera den nya versionen...</string>
     <string name="dismiss_key">Avbryt</string>
     <string name="installing_text_key">Installera den nya versionen</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Visas inte vid nästa lansering</string>
 </resources>

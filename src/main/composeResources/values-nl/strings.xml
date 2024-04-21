@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">De nieuwe versie installeren...</string>
     <string name="dismiss_key">Annuleren</string>
     <string name="installing_text_key">De nieuwe versie installeren</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Niet te zien bij volgende lancering</string>
 </resources>

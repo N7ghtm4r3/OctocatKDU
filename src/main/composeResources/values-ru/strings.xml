@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">Установка новой версии...</string>
     <string name="dismiss_key">Отмена</string>
     <string name="installing_text_key">Установка новой версии</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Не показывать при следующем запуске</string>
 </resources>

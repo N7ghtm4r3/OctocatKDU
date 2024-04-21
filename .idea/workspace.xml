@@ -4,11 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Implemented the Release Notes section to display in the dialog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-bg/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-bg/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-cs/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-cs/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-da/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-da/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-de/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-el/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-el/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-es/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-es/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-et/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-et/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-fi/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-fi/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-fr/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-fr/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-hu/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-hu/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-id/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-id/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-it/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-it/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-ja/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-ja/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-lt/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-lt/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-lv/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-lv/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-nl/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-nl/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-pl/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-pl/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-ro/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-ro/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-ru/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-ru/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-sk/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-sk/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-sl/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-sl/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-sv/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-sv/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-tr/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-tr/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-uk/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-uk/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-zh/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-zh/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/composeResources/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +130,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;com.github.airsaid.androidlocalize.is_select_all&quot;: &quot;true&quot;,
-    &quot;com.github.airsaid.androidlocalize.selected_languages&quot;: &quot;94,9,104,33,15,29,119,118,6,20,18,16,87,90,98,63,39,41,11,120,121,43,17,70,71,85,64,80,83&quot;,
+    &quot;com.github.airsaid.androidlocalize.selected_languages&quot;: &quot;9,104,33,15,29,119,118,6,20,18,16,87,90,98,94,63,39,41,11,120,121,43,17,70,71,85,64,80,83&quot;,
     &quot;git-widget-placeholder&quot;: &quot;e1.0.3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources&quot;,
@@ -360,7 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713650161344</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Implemented the Release Notes section to display in the dialog">
+      <option name="closed" value="true" />
+      <created>1713724949939</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713724949939</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,6 +420,7 @@
     <MESSAGE value="Optimized the flow of the updater dialog" />
     <MESSAGE value="Working on the 1.0.3 enhancement" />
     <MESSAGE value="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library" />
+    <MESSAGE value="Implemented the Release Notes section to display in the dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the Release Notes section to display in the dialog" />
   </component>
 </project>

@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">Instalarea noii versiuni...</string>
     <string name="dismiss_key">Anulează</string>
     <string name="installing_text_key">Instalarea noii versiuni</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Nu se afișează la următoarea lansare</string>
 </resources>

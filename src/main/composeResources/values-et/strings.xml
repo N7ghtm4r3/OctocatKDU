@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">Uue versiooni paigaldamine...</string>
     <string name="dismiss_key">Tühista</string>
     <string name="installing_text_key">Uue versiooni paigaldamine</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Järgmisel käivitamisel ei näidata</string>
 </resources>

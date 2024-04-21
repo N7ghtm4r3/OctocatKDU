@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">Az új verzió telepítése...</string>
     <string name="dismiss_key">Törölje</string>
     <string name="installing_text_key">Az új verzió telepítése</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Nem jelenik meg a következő indításkor</string>
 </resources>

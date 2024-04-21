@@ -8,4 +8,5 @@
     <string name="dismiss_key">Cancel</string>
     <string name="installing_text_key">Installing the new version</string>
     <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Not show at next launch</string>
 </resources>

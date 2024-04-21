@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">安装新版本...</string>
     <string name="dismiss_key">取消</string>
     <string name="installing_text_key">安装新版本</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">下次发射时不显示</string>
 </resources>

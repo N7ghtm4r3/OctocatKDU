@@ -7,4 +7,6 @@
     <string name="installing_executable_text_key">Namestitev nove različice...</string>
     <string name="dismiss_key">Prekliči</string>
     <string name="installing_text_key">Namestitev nove različice</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Ne pokaže se ob naslednjem zagonu</string>
 </resources>
