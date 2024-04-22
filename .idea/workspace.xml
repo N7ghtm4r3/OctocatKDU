@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Implemented the Release Notes section to display in the dialog">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Working on the &quot;hide the dialog at the next launches&quot; feature">
+      <change afterPath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-bg/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-bg/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-cs/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-cs/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-da/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-da/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-de/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-el/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-el/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-es/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-es/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-et/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-et/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-fi/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-fi/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-fr/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-fr/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-hu/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-hu/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-id/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-id/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-it/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-it/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-ja/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-ja/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-lt/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-lt/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-lv/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-lv/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-nl/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-nl/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-pl/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-pl/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-ro/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-ro/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-ru/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-ru/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-sk/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-sk/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-sl/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-sl/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-sv/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-sv/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-tr/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-tr/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-uk/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-uk/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-zh/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values-zh/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/composeResources/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,8 +64,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -391,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713724949939</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Working on the &quot;hide the dialog at the next launches&quot; feature">
+      <option name="closed" value="true" />
+      <created>1713728791648</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713728791648</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -421,6 +406,7 @@
     <MESSAGE value="Working on the 1.0.3 enhancement" />
     <MESSAGE value="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library" />
     <MESSAGE value="Implemented the Release Notes section to display in the dialog" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the Release Notes section to display in the dialog" />
+    <MESSAGE value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
   </component>
 </project>

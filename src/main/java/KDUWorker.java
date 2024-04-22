@@ -30,7 +30,7 @@ import static java.util.concurrent.Executors.newSingleThreadExecutor;
  *
  * @author N7ghtm4r3 - Tecknobit
  */
-public class KDUWorker {
+class KDUWorker {
 
     /**
      * {@code OS} list of available OS

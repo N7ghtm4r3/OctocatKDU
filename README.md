@@ -18,7 +18,6 @@ Add the JitPack repository to your build file
     repositories {
         ...
         maven { url 'https://jitpack.io' }
-        maven { url 'https://repo.clojars.org' }
     }
     ```
 
@@ -28,7 +27,6 @@ Add the JitPack repository to your build file
     repositories {
         ...
         maven("https://jitpack.io")
-        maven("https://repo.clojars.org")
     }
     ```
 
@@ -77,8 +75,8 @@ Add the JitPack repository to your build file
 ### Latest supported property configuration
 
 ``` properties
-kotlin.version=1.8.0
-compose.version=1.4.2
+kotlin.version=1.9.20
+compose.version=1.6.0
 ```
 
 ### Usage/Examples
@@ -115,6 +113,9 @@ Use the fake updater dialog to testing the workflow of your application with the
 ```kotlin
 FakeUpdaterDialog(
   appName = "MyApplication",
+  onUpdateAvailable = {
+    // the application flow when there is an update available and the dialog is displayed
+  },
   dismissAction = {
       // the rest of the application flow
   }
@@ -129,6 +130,9 @@ Use the real updater dialog in the release
 UpdaterDialog(
   appName = "MyApplication",
   currentVersion = "current_version_of_the_application",
+  onUpdateAvailable = {
+    // the application flow when there is an update available and the dialog is displayed
+  },
   dismissAction = {
     // the rest of the application flow
   }
@@ -147,6 +151,9 @@ The customization can be both with the faker and with the real dialog
   MyApplicationTheme {
     FakeUpdaterDialog(
       appName = "MyApplication",
+      onUpdateAvailable = {
+        // the application flow when there is an update available and the dialog is displayed
+      },
       dismissAction = {
           // the rest of the application flow
       }
@@ -176,6 +183,19 @@ The customization can be both with the faker and with the real dialog
     textFontFamily = // the font family for the text of the dialog,
   )
   ```
+
+#### Custom options that can be activated
+
+- `not_show_at_next_launch`
+  ```kotlin
+  FakeUpdaterDialog(
+    ...
+    // allow the user to avoid to be warned about new updates available hiding the dialog
+    notShowAtNextLaunchOptionEnabled = false / true
+    ...
+  )
+  ```
+
 #### Release distribution
 
 > [!IMPORTANT]  
