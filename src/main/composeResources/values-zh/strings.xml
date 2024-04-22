@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">新版本可用</string>
+    <string name="text_part_two_key">是更新还是保留这个版本？</string>
+    <string name="no_update_key">不要更新</string>
+    <string name="text_part_one_key">新版本可用于</string>
+    <string name="update_key">更新</string>
+    <string name="installing_executable_text_key">安装新版本...</string>
+    <string name="dismiss_key">取消</string>
+    <string name="installing_text_key">安装新版本</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">下次发射时不显示</string>
+</resources>

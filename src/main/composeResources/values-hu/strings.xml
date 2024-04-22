@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">Új verzió elérhető</string>
+    <string name="text_part_two_key">, frissíteni vagy megtartani ezt a verziót</string>
+    <string name="no_update_key">Ne frissítsen</string>
+    <string name="text_part_one_key">Új verzió áll rendelkezésre a</string>
+    <string name="update_key">Frissítés</string>
+    <string name="installing_executable_text_key">Az új verzió telepítése...</string>
+    <string name="dismiss_key">Törölje</string>
+    <string name="installing_text_key">Az új verzió telepítése</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Nem jelenik meg a következő indításkor</string>
+</resources>

@@ -1,6 +1,6 @@
 # OctocatKDU
 
-**v1.0.2**
+**v1.0.3**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
@@ -18,7 +18,6 @@ Add the JitPack repository to your build file
     repositories {
         ...
         maven { url 'https://jitpack.io' }
-        maven { url 'https://repo.clojars.org' }
     }
     ```
 
@@ -28,7 +27,6 @@ Add the JitPack repository to your build file
     repositories {
         ...
         maven("https://jitpack.io")
-        maven("https://repo.clojars.org")
     }
     ```
 
@@ -38,7 +36,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.2'
+        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.3'
     }
     ```
 
@@ -46,7 +44,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.2")
+        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.3")
     }
     ```
 
@@ -71,14 +69,14 @@ Add the JitPack repository to your build file
 <dependency>
   <groupId>com.github.N7ghtm4r3</groupId>
   <artifactId>OctocatKDU</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 ### Latest supported property configuration
 
 ``` properties
-kotlin.version=1.8.0
-compose.version=1.4.2
+kotlin.version=1.9.20
+compose.version=1.6.0
 ```
 
 ### Usage/Examples
@@ -115,6 +113,9 @@ Use the fake updater dialog to testing the workflow of your application with the
 ```kotlin
 FakeUpdaterDialog(
   appName = "MyApplication",
+  onUpdateAvailable = {
+    // the application flow when there is an update available and the dialog is displayed
+  },
   dismissAction = {
       // the rest of the application flow
   }
@@ -129,6 +130,9 @@ Use the real updater dialog in the release
 UpdaterDialog(
   appName = "MyApplication",
   currentVersion = "current_version_of_the_application",
+  onUpdateAvailable = {
+    // the application flow when there is an update available and the dialog is displayed
+  },
   dismissAction = {
     // the rest of the application flow
   }
@@ -147,6 +151,9 @@ The customization can be both with the faker and with the real dialog
   MyApplicationTheme {
     FakeUpdaterDialog(
       appName = "MyApplication",
+      onUpdateAvailable = {
+        // the application flow when there is an update available and the dialog is displayed
+      },
       dismissAction = {
           // the rest of the application flow
       }
@@ -176,6 +183,19 @@ The customization can be both with the faker and with the real dialog
     textFontFamily = // the font family for the text of the dialog,
   )
   ```
+
+#### Custom options that can be activated
+
+- `not_show_at_next_launch`
+  ```kotlin
+  FakeUpdaterDialog(
+    ...
+    // allow the user to avoid to be warned about new updates available hiding the dialog
+    notShowAtNextLaunchOptionEnabled = false / true
+    ...
+  )
+  ```
+
 #### Release distribution
 
 > [!IMPORTANT]  

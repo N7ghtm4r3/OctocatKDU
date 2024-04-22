@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">Uus versioon saadaval</string>
+    <string name="text_part_two_key">, uuendada või hoida seda versiooni</string>
+    <string name="no_update_key">Ära uuenda</string>
+    <string name="text_part_one_key">On olemas uus versioon, mis on saadaval</string>
+    <string name="update_key">Ajakohastamine</string>
+    <string name="installing_executable_text_key">Uue versiooni paigaldamine...</string>
+    <string name="dismiss_key">Tühista</string>
+    <string name="installing_text_key">Uue versiooni paigaldamine</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Järgmisel käivitamisel ei näidata</string>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">Доступна нова версія</string>
+    <string name="text_part_two_key">оновити чи залишити цю версію</string>
+    <string name="no_update_key">Не оновлювати</string>
+    <string name="text_part_one_key">Нова версія доступна для</string>
+    <string name="update_key">Оновлення</string>
+    <string name="installing_executable_text_key">Встановлення нової версії...</string>
+    <string name="dismiss_key">Скасувати</string>
+    <string name="installing_text_key">Встановлення нової версії</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Не показувати при наступному запуску</string>
+</resources>

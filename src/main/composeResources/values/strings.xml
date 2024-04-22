@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">New version available</string>
+    <string name="text_part_two_key">, update or keep this version?</string>
+    <string name="no_update_key">Don't update</string>
+    <string name="text_part_one_key">There is a new version available for</string>
+    <string name="update_key">Update</string>
+    <string name="installing_executable_text_key">Installing the new version...</string>
+    <string name="dismiss_key">Cancel</string>
+    <string name="installing_text_key">Installing the new version</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Not show at next launch</string>
+</resources>

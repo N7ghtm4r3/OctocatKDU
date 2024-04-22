@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">Na voljo je nova različica</string>
+    <string name="text_part_two_key">, posodobiti ali ohraniti to različico</string>
+    <string name="no_update_key">Ne posodabljajte</string>
+    <string name="text_part_one_key">Na voljo je nova različica za</string>
+    <string name="update_key">Posodobitev</string>
+    <string name="installing_executable_text_key">Namestitev nove različice...</string>
+    <string name="dismiss_key">Prekliči</string>
+    <string name="installing_text_key">Namestitev nove različice</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Ne pokaže se ob naslednjem zagonu</string>
+</resources>

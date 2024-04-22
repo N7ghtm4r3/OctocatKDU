@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_key">Ny version tillgänglig</string>
+    <string name="text_part_two_key">, uppdatera eller behålla denna version</string>
+    <string name="no_update_key">Uppdatera inte</string>
+    <string name="text_part_one_key">Det finns en ny version tillgänglig för</string>
+    <string name="update_key">Uppdatering</string>
+    <string name="installing_executable_text_key">Installera den nya versionen...</string>
+    <string name="dismiss_key">Avbryt</string>
+    <string name="installing_text_key">Installera den nya versionen</string>
+    <string name="release_notes" translatable="false">Release notes</string>
+    <string name="not_show_at_next_launch">Visas inte vid nästa lansering</string>
+</resources>

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Work on 1.0.2 update">
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Working on the &quot;hide the dialog at the next launches&quot; feature">
+      <change afterPath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +64,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,13 +102,16 @@
     &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.OctocatKDU [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;u1.0.2&quot;,
+    &quot;com.github.airsaid.androidlocalize.is_select_all&quot;: &quot;true&quot;,
+    &quot;com.github.airsaid.androidlocalize.selected_languages&quot;: &quot;9,104,33,15,29,119,118,6,20,18,16,87,90,98,94,63,39,41,11,120,121,43,17,70,71,85,64,80,83&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;e1.0.3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.airsaid.localization.config.SettingsConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -331,8 +336,59 @@
       <option name="project" value="LOCAL" />
       <updated>1706212793418</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Optimized the flow of the updater dialog">
+      <option name="closed" value="true" />
+      <created>1706349742100</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1706349742100</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Working on the 1.0.3 enhancement">
+      <option name="closed" value="true" />
+      <created>1713649107303</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713649107303</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library">
+      <option name="closed" value="true" />
+      <created>1713650161344</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713650161344</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Implemented the Release Notes section to display in the dialog">
+      <option name="closed" value="true" />
+      <created>1713724949939</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713724949939</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Working on the &quot;hide the dialog at the next launches&quot; feature">
+      <option name="closed" value="true" />
+      <created>1713728791648</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713728791648</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Link commit!" />
@@ -346,6 +402,11 @@
     <MESSAGE value="Fixed some issues" />
     <MESSAGE value="Use different properties configuration" />
     <MESSAGE value="Work on 1.0.2 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on 1.0.2 update" />
+    <MESSAGE value="Optimized the flow of the updater dialog" />
+    <MESSAGE value="Working on the 1.0.3 enhancement" />
+    <MESSAGE value="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library" />
+    <MESSAGE value="Implemented the Release Notes section to display in the dialog" />
+    <MESSAGE value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
   </component>
 </project>
