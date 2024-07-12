@@ -22,6 +22,8 @@ import com.mikepenz.markdown.m3.Markdown
 import com.tecknobit.apimanager.annotations.Wrapper
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.GREEN
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor.YELLOW
+import com.tecknobit.apimanager.formatters.TimeFormatter
+import com.tecknobit.apimanager.formatters.TimeFormatter.DEFAULT_PATTERN
 import com.tecknobit.octocatkdu.generated.resources.*
 import com.tecknobit.octocatkdu.generated.resources.Res.string
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -255,6 +257,7 @@ fun UpdaterDialog(
             )
         } else
             dismissAction.invoke()
+        TimeFormatter.changeDefaultPattern(DEFAULT_PATTERN)
     }
 }
 
@@ -408,7 +411,7 @@ private fun KDUDialog(
                                     }
                                 )
                                 Text(
-                                    text = stringResource(Res.string.not_show_at_next_launch)
+                                    text = stringResource(string.not_show_at_next_launch)
                                 )
                             }
                         }

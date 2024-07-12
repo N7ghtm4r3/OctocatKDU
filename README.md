@@ -72,11 +72,11 @@ Add the JitPack repository to your build file
   <version>1.0.4</version>
 </dependency>
 ```
-### Latest supported property configuration
+### Latest supported properties configuration
 
 ``` properties
-kotlin.version=1.9.20
-compose.version=1.6.0
+kotlin.version=2.0.0
+compose.version=1.6.11
 ```
 
 ### Usage/Examples
