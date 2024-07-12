@@ -320,7 +320,10 @@ private fun KDUDialog(
         onUpdateAvailable.invoke()
         AlertDialog(
             modifier = dialogModifier,
-            onDismissRequest = { show = false },
+            onDismissRequest = {
+                if(!isInstalling.value)
+                    show = false
+            },
             shape = shape,
             title = {
                 Text(

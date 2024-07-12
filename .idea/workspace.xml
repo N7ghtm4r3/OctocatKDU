@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Working on the &quot;hide the dialog at the next launches&quot; feature">
-      <change afterPath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" afterDir="false" />
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Finished the 1.0.3 enhancement">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KDUWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/composeResources/values-en/strings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,23 +38,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="OctocatKDU" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="OctocatKDU" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="OctocatKDU" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="OctocatKDU" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="publishing" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -77,9 +61,25 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="1ed13b2b-5ab1-4376-b8e7-a4ed9035e641" />
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "N7ghtm4r3"
+  }
+}]]></component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="e1\.0\.4" />
+      </list>
+    </option>
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/N7ghtm4r3/OctocatKDU",
+    "accountId": "0fd6fa14-0ad4-4519-940b-8ee0c93ad37e"
+  }
+}]]></component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
@@ -96,34 +96,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build OctocatKDU.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OctocatKDU [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.github.airsaid.androidlocalize.is_select_all&quot;: &quot;true&quot;,
-    &quot;com.github.airsaid.androidlocalize.selected_languages&quot;: &quot;9,104,33,15,29,119,118,6,20,18,16,87,90,98,94,63,39,41,11,120,121,43,17,70,71,85,64,80,83&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;e1.0.3&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/manue/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU/src/main/resources&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.airsaid.localization.config.SettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build OctocatKDU.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.OctocatKDU [clean].executor": "Run",
+    "Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor": "Run",
+    "Gradle.desktop.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.github.airsaid.androidlocalize.is_select_all": "true",
+    "com.github.airsaid.androidlocalize.selected_languages": "9,104,33,15,29,119,118,6,20,18,16,87,90,98,94,63,39,41,11,120,121,43,17,70,71,85,64,80,83",
+    "git-widget-placeholder": "e1.0.4",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Manu/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU",
+    "settings.editor.selected.configurable": "com.airsaid.localization.config.SettingsConfigurable"
+  },
+  "keyToStringList": {
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\Manu\\.gradle"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Manu\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\src\main\kotlin" />
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\images" />
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.OctocatKDU [clean]">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="OctocatKDU [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -177,19 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.OctocatKDU [clean]" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.OctocatKDU [clean]" />
         <item itemvalue="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-18.0.2-azul-18.0.2.1-8336523bb0d9-9ca2f5c4" />
-        <option value="jdk-19.0.2-corretto-19.0.2-8336523bb0d9-b81783ad" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -376,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713728791648</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Finished the 1.0.3 enhancement">
+      <option name="closed" value="true" />
+      <created>1713787379982</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713787379982</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,6 +413,7 @@
     <MESSAGE value="Fixing theme issue and updating snippets of code to 2.2.3 of APIManager library" />
     <MESSAGE value="Implemented the Release Notes section to display in the dialog" />
     <MESSAGE value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
+    <MESSAGE value="Finished the 1.0.3 enhancement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the 1.0.3 enhancement" />
   </component>
 </project>
