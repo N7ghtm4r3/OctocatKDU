@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Fixed the issue of the wrong format of the time when the UpdaterDialog was shown and migrate to kotlin 2.0.0 to fix the strings resources issue">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/params/OctocatKDUConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/params/OctocatKDUConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/params/OctocatKDUConfig.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,29 +93,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build OctocatKDU.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OctocatKDU [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.github.airsaid.androidlocalize.is_select_all&quot;: &quot;true&quot;,
-    &quot;com.github.airsaid.androidlocalize.selected_languages&quot;: &quot;9,104,33,15,29,119,118,6,20,18,16,87,90,98,94,63,39,41,11,120,121,43,17,70,71,85,64,80,83&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;e1.0.4&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Manu/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.airsaid.localization.config.SettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build OctocatKDU.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.OctocatKDU [clean].executor": "Run",
+    "Gradle.OctocatKDU [publishMavenPublicationToMavenLocal].executor": "Run",
+    "Gradle.desktop.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.github.airsaid.androidlocalize.is_select_all": "true",
+    "com.github.airsaid.androidlocalize.selected_languages": "9,104,33,15,29,119,118,6,20,18,16,87,90,98,94,63,39,41,11,120,121,43,17,70,71,85,64,80,83",
+    "git-widget-placeholder": "e1.0.4",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Manu/Desktop/Tecknobit/Dependencies/AndroidDeps/OctocatKDU",
+    "settings.editor.selected.configurable": "com.airsaid.localization.config.SettingsConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;kotlin-gradle-user-dirs&quot;: [
-      &quot;C:\\Users\\Manu\\.gradle&quot;
+  "keyToStringList": {
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\manue\\.gradle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU\src\main\resources" />
@@ -128,7 +126,7 @@
       <recent name="C:\Users\manue\Desktop\Tecknobit\Dependencies\AndroidDeps\OctocatKDU" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.OctocatKDU [clean]">
     <configuration name="OctocatKDU [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -182,8 +180,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.OctocatKDU [clean]" />
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.OctocatKDU [publishMavenPublicationToMavenLocal]" />
       </list>
     </recent_temporary>

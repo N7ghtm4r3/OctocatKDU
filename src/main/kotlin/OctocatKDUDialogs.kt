@@ -25,16 +25,18 @@ import com.tecknobit.apimanager.formatters.TimeFormatter
 import com.tecknobit.apimanager.formatters.TimeFormatter.DEFAULT_PATTERN
 import com.tecknobit.octocatkdu.generated.resources.*
 import com.tecknobit.octocatkdu.generated.resources.Res.string
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
-import params.OctocatKDUConfig
 import java.util.*
 import kotlin.system.exitProcess
 
 /**
  * **last_version** -> last version text
  */
-private const val last_version = "last_version"
+@Deprecated(
+    message = "This will be removed in the next version",
+    level = DeprecationLevel.WARNING
+)
+private const val last_depr_version = "last_version"
 
 /**
  * **no_update_log_key** -> log text used in the [FakeUpdaterDialog] when the no update button is clicked
@@ -94,7 +96,7 @@ private val kduExhibitor = KDUExhibitor()
     replaceWith = ReplaceWith(
         expression = "[this.FakeUpdaterDialog()]" //TODO: TO SET THE CORRECT PARAMATERS
     ),
-    level = DeprecationLevel.ERROR
+    level = DeprecationLevel.WARNING
 )
 fun FakeUpdaterDialog(
     dialogModifier: Modifier = Modifier
@@ -131,7 +133,7 @@ fun FakeUpdaterDialog(
             locale = locale,
             shape = shape,
             isInstalling = isInstalling,
-            newVersion = last_version,
+            newVersion = last_depr_version,
             appName = appName,
             onUpdateAvailable = onUpdateAvailable,
             titleModifier = titleModifier,
@@ -211,7 +213,7 @@ fun FakeUpdaterDialog(
     replaceWith = ReplaceWith(
         expression = "[this.UpdaterDialog()]" //TODO: TO SET THE CORRECT PARAMATERS
     ),
-    level = DeprecationLevel.ERROR
+    level = DeprecationLevel.WARNING
 )
 fun UpdaterDialog(
     dialogModifier: Modifier = Modifier
@@ -313,7 +315,7 @@ fun UpdaterDialog(
     replaceWith = ReplaceWith(
         expression = "[this.KDUDialog()]" //TODO: TO SET THE CORRECT PARAMATERS
     ),
-    level = DeprecationLevel.ERROR
+    level = DeprecationLevel.WARNING
 )
 private fun KDUDialog(
     isReal: Boolean = true,
@@ -365,7 +367,7 @@ private fun KDUDialog(
                 )
             },
             text = {
-                var hideDialog by remember { mutableStateOf(!kduExhibitor.canDisplayDialog()) }
+                var hideDialog by remember { mutableStateOf(!kduExhibitor.canDisplayDialog(!isReal)) }
                 Column {
                     if(isInstalling.value) {
                         Text(
@@ -477,118 +479,56 @@ private fun KDUDialog(
         Locale.setDefault(currentDefaultLocale)
 }
 
-
-
-
-
-
-
 /**
  * Function to create the fake update dialog for testing purposes
  *
- * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
- * @param locale: the locale language to use
- * @param shape: the shape of the [AlertDialog]
- * @param appName: the name of the application where the dialog will be shown
- * @param onUpdateAvailable: the action to execute if there is an update available and the dialog is shown
- * @param showFakeUpdate: whether show the dialog
- * @param titleModifier: the modifier for the title of the [AlertDialog]
- * @param titleColor: the color of the title of the [AlertDialog]
- * @param titleFontSize: the font size for the title of the [AlertDialog]
- * @param titleFontStyle: the font style for the title of the [AlertDialog]
- * @param titleFontWeight: the font weight for the title of the [AlertDialog]
- * @param titleFontFamily: the font family for the title of the [AlertDialog]
- * @param textModifier: the modifier for the text of the [AlertDialog]
- * @param textColor: the color of the text of the [AlertDialog]
- * @param textFontSize: the font size for the text of the [AlertDialog]
- * @param textFontStyle: the font style for the text of the [AlertDialog]
- * @param textFontWeight: the font weight for the text of the [AlertDialog]
- * @param textFontFamily: the font family for the text of the [AlertDialog]
- * @param releaseNotes: the notes of the release
- * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
- * update, at the next launches
- * @param dismissAction: the action to execute when the dismiss button has been clicked,
- * note this action will be invoked also if the dialog are not displayed
  */
+//TODO: TO COMMENT
 @Wrapper
 @Composable
 fun FakeUpdaterDialog(
-    dialogModifier: Modifier = Modifier
-        .heightIn(
-            max = 500.dp
-        ),
-    octocatKDUConfig: OctocatKDUConfig,
-    locale: Locale = Locale.getDefault(),
-    shape: Shape = RoundedCornerShape(15.dp),
-    appName: String,
-    onUpdateAvailable: () -> Unit,
     showFakeUpdate: Boolean = true,
-    titleModifier: Modifier = Modifier,
-    titleColor: Color = Color.Unspecified,
-    titleFontSize: TextUnit = 18.sp,
-    titleFontStyle: FontStyle? = null,
-    titleFontWeight: FontWeight? = null,
-    titleFontFamily: FontFamily? = null,
-    textModifier: Modifier = Modifier,
-    textColor: Color = Color.Unspecified,
-    textFontSize: TextUnit = 16.sp,
-    textFontStyle: FontStyle? = null,
-    textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null,
-    releaseNotes: String? = null,
-    notShowAtNextLaunchOptionEnabled: Boolean = false,
+    config: OctocatKDUConfig,
+    style: OctocatKDUStyle = OctocatKDUStyle(),
+    currentVersion: String,
     dismissAction: () -> Unit
 ) {
     var timer = Timer()
     val isInstalling = remember { mutableStateOf(false) }
     if(showFakeUpdate) {
+        val kduExhibitor = KDUExhibitor(
+            config.frequencyVisibility
+        )
+        config.dismissAction = {
+            logMessage(
+                no_update_log_key,
+                YELLOW
+            )
+            dismissAction.invoke()
+        }
+        config.confirmAction = {
+            if(!isInstalling.value) {
+                timer.schedule(object : TimerTask() {
+                    override fun run() {
+                        logMessage(
+                            installation_message_key,
+                            GREEN
+                        )
+                        exitProcess(0)
+                    }
+                }, 5000)
+            } else {
+                logError(dismiss_update_log_key)
+                timer.cancel()
+                timer = Timer()
+            }
+        }
         KDUDialog(
             isReal = false,
-            dialogModifier = dialogModifier,
-            locale = locale,
-            shape = shape,
             isInstalling = isInstalling,
-            newVersion = last_version,
-            appName = appName,
-            onUpdateAvailable = onUpdateAvailable,
-            titleModifier = titleModifier,
-            titleColor = titleColor,
-            titleFontSize = titleFontSize,
-            titleFontStyle = titleFontStyle,
-            titleFontWeight = titleFontWeight,
-            titleFontFamily = titleFontFamily,
-            textModifier = textModifier,
-            textColor = textColor,
-            textFontSize = textFontSize,
-            textFontStyle = textFontStyle,
-            textFontWeight = textFontWeight,
-            textFontFamily = textFontFamily,
-            releaseNotes = releaseNotes,
-            notShowAtNextLaunchOptionEnabled = notShowAtNextLaunchOptionEnabled,
-            dismissAction = {
-                logMessage(
-                    no_update_log_key,
-                    YELLOW
-                )
-                dismissAction.invoke()
-            },
-            confirmAction = {
-                if(!isInstalling.value) {
-                    timer.schedule(object : TimerTask() {
-                        override fun run() {
-                            logMessage(
-                                installation_message_key,
-                                GREEN
-                            )
-                            exitProcess(0)
-                        }
-                    }, 5000)
-                } else {
-                    logError(dismiss_update_log_key)
-                    timer.cancel()
-                    timer = Timer()
-                }
-            },
+            kduExhibitor = kduExhibitor,
+            config = config,
+            style = style
         )
     } else
         dismissAction.invoke()
@@ -597,95 +537,38 @@ fun FakeUpdaterDialog(
 /**
  * Function to create the update dialog to update the application to the latest release
  *
- * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
- * @param locale: the locale language to use
- * @param shape: the shape of the [AlertDialog]
- * @param appName: the name of the application where the dialog will be shown
- * @param onUpdateAvailable: the action to execute if there is an update available and the dialog is shown
- * @param currentVersion: the current version of the application, it will be used to check if is currently the latest
- * version available
- * @param titleModifier: the modifier for the title of the [AlertDialog]
- * @param titleColor: the color of the title of the [AlertDialog]
- * @param titleFontSize: the font size for the title of the [AlertDialog]
- * @param titleFontStyle: the font style for the title of the [AlertDialog]
- * @param titleFontWeight: the font weight for the title of the [AlertDialog]
- * @param titleFontFamily: the font family for the title of the [AlertDialog]
- * @param textModifier: the modifier for the text of the [AlertDialog]
- * @param textColor: the color of the text of the [AlertDialog]
- * @param textFontSize: the font size for the text of the [AlertDialog]
- * @param textFontStyle: the font style for the text of the [AlertDialog]
- * @param textFontWeight: the font weight for the text of the [AlertDialog]
- * @param textFontFamily: the font family for the text of the [AlertDialog]
- * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
- * update, at the next launches
- * @param dismissAction: the action to execute when the dismiss button has been clicked,
- * note this action will be invoked also if the dialog are not displayed
  */
+//TODO: TO COMMENT
 @Wrapper
 @Composable
 fun UpdaterDialog(
-    dialogModifier: Modifier = Modifier
-        .heightIn(
-            max = 500.dp
-        ),
-    octocatKDUConfig: OctocatKDUConfig,
-    locale: Locale = Locale.getDefault(),
-    shape: Shape = RoundedCornerShape(15.dp),
-    appName: String,
-    currentVersion: String,
-    onUpdateAvailable: () -> Unit,
-    titleModifier: Modifier = Modifier,
-    titleColor: Color = Color.Unspecified,
-    titleFontSize: TextUnit = 18.sp,
-    titleFontStyle: FontStyle? = null,
-    titleFontWeight: FontWeight? = null,
-    titleFontFamily: FontFamily? = null,
-    textModifier: Modifier = Modifier,
-    textColor: Color = Color.Unspecified,
-    textFontSize: TextUnit = 16.sp,
-    textFontStyle: FontStyle? = null,
-    textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null,
-    notShowAtNextLaunchOptionEnabled: Boolean = false,
-    dismissAction: () -> Unit = {}
+    config: OctocatKDUConfig,
+    style: OctocatKDUStyle = OctocatKDUStyle(),
+    currentVersion: String
 ) {
+    val kduExhibitor = KDUExhibitor(
+        config.frequencyVisibility
+    )
     if(kduExhibitor.canDisplayDialog(false)) {
-        val kduWorker = KDUWorker(appName)
+        val kduWorker = KDUWorker(config.appName)
         val isInstalling = remember { mutableStateOf(false) }
         if(kduWorker.canBeUpdated(currentVersion)) {
             kduExhibitor.refreshDisplayedTime()
+            config.confirmAction = {
+                config.confirmAction.invoke()
+                if(!isInstalling.value)
+                    kduWorker.installNewVersion()
+                else
+                    kduWorker.stopInstallation()
+            }
             KDUDialog(
-                dialogModifier = dialogModifier,
-                locale = locale,
-                shape = shape,
                 isInstalling = isInstalling,
-                newVersion = kduWorker.lastVersionCode,
-                appName = appName,
-                onUpdateAvailable = onUpdateAvailable,
-                titleModifier = titleModifier,
-                titleColor = titleColor,
-                titleFontSize = titleFontSize,
-                titleFontStyle = titleFontStyle,
-                titleFontWeight = titleFontWeight,
-                titleFontFamily = titleFontFamily,
-                textModifier = textModifier,
-                textColor = textColor,
-                textFontSize = textFontSize,
-                textFontStyle = textFontStyle,
-                textFontWeight = textFontWeight,
-                textFontFamily = textFontFamily,
-                releaseNotes = kduWorker.releaseNotes,
-                notShowAtNextLaunchOptionEnabled = notShowAtNextLaunchOptionEnabled,
-                dismissAction = dismissAction,
-                confirmAction = {
-                    if(!isInstalling.value)
-                        kduWorker.installNewVersion()
-                    else
-                        kduWorker.stopInstallation()
-                },
+                kduExhibitor = kduExhibitor,
+                config = config,
+                style = style
             )
         } else
-            dismissAction.invoke()
+            config.dismissAction()
         TimeFormatter.changeDefaultPattern(DEFAULT_PATTERN)
     }
 }
@@ -694,82 +577,45 @@ fun UpdaterDialog(
  * Function to create the update dialog to update the application to the latest release
  *
  * @param isReal: whether the dialog is the [FakeUpdaterDialog] or the [UpdaterDialog]
- * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
- * @param locale: the locale language to use
- * @param shape: the shape of the [AlertDialog]
  * @param isInstalling: the current status of the dialog
- * @param appName: the name of the application where the dialog will be shown
- * @param onUpdateAvailable: the action to execute if there is an update available and the dialog is shown
- * @param titleModifier: the dialogModifier for the title of the [AlertDialog]
- * @param titleColor: the color of the title of the [AlertDialog]
- * @param titleFontSize: the font size for the title of the [AlertDialog]
- * @param titleFontStyle: the font style for the title of the [AlertDialog]
- * @param titleFontWeight: the font weight for the title of the [AlertDialog]
- * @param titleFontFamily: the font family for the title of the [AlertDialog]
- * @param textModifier: the dialogModifier for the text of the [AlertDialog]
- * @param textColor: the color of the text of the [AlertDialog]
- * @param textFontSize: the font size for the text of the [AlertDialog]
- * @param textFontStyle: the font style for the text of the [AlertDialog]
- * @param textFontWeight: the font weight for the text of the [AlertDialog]
- * @param textFontFamily: the font family for the text of the [AlertDialog]
- * @param releaseNotes: the notes of the release
- * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
- * update, at the next launches
- * @param dismissAction: the action to execute when the dismiss button has been clicked
- * @param confirmAction: the action to execute when the confirm button has been clicked
  */
+//TODO: TO COMMENT
 @Composable
 private fun KDUDialog(
     isReal: Boolean = true,
-    octocatKDUConfig: OctocatKDUConfig,
-    dialogModifier: Modifier,
-    shape: Shape,
     isInstalling: MutableState<Boolean>,
-    newVersion: String,
-    appName: String,
-    onUpdateAvailable: () -> Unit,
-    titleModifier: Modifier = Modifier,
-    titleColor: Color = Color.Unspecified,
-    titleFontSize: TextUnit = 18.sp,
-    titleFontStyle: FontStyle? = null,
-    titleFontWeight: FontWeight? = null,
-    titleFontFamily: FontFamily? = null,
-    textModifier: Modifier = Modifier,
-    textColor: Color = Color.Unspecified,
-    textFontSize: TextUnit = 16.sp,
-    textFontStyle: FontStyle? = null,
-    textFontWeight: FontWeight? = null,
-    textFontFamily: FontFamily? = null,
-    releaseNotes: String? = null,
-    dismissAction: () -> Unit = {},
-    confirmAction: () -> Unit = {},
+    kduExhibitor: KDUExhibitor,
+    config: OctocatKDUConfig,
+    style: OctocatKDUStyle
 ) {
     val currentDefaultLocale = Locale.getDefault()
-    val notShowAtNextLaunchOptionEnabled: Boolean = octocatKDUConfig.notShowAtNextLaunchOptionEnabled
+    val notShowAtNextLaunchOptionEnabled: Boolean = config.notShowAtNextLaunchOptionEnabled
     var show by remember { mutableStateOf(true) }
     if(show) {
-        Locale.setDefault(octocatKDUConfig.locale)
-        onUpdateAvailable.invoke()
+        Locale.setDefault(config.locale)
+        config.onUpdateAvailable()
         AlertDialog(
-            modifier = dialogModifier,
+            modifier = style.dialogModifier,
             onDismissRequest = {
                 if(!isInstalling.value)
                     show = false
             },
-            shape = shape,
+            shape = style.shape,
             title = {
                 Text(
-                    modifier = titleModifier,
-                    text = "${stringResource(string.title_key)} $newVersion!",
-                    color = titleColor,
-                    fontSize = titleFontSize,
-                    fontStyle = titleFontStyle,
-                    fontWeight = titleFontWeight,
-                    fontFamily = titleFontFamily
+                    modifier = style.titleModifier,
+                    text = "${stringResource(string.title_key)} ${config.newVersion}!",
+                    color = style.titleColor,
+                    fontSize = style.titleFontSize,
+                    fontStyle = style.titleFontStyle,
+                    fontWeight = style.titleFontWeight,
+                    fontFamily = style.titleFontFamily
                 )
             },
             text = {
-                var hideDialog by remember { mutableStateOf(!kduExhibitor.canDisplayDialog()) }
+                var hideDialog by remember {
+                    mutableStateOf(!kduExhibitor.canDisplayDialog(!isReal))
+                }
                 Column {
                     if(isInstalling.value) {
                         Text(
@@ -784,16 +630,16 @@ private fun KDUDialog(
                         )
                     } else {
                         Text(
-                            modifier = textModifier,
-                            text = "${stringResource(string.text_part_one_key)} $appName " +
+                            modifier = style.textModifier,
+                            text = "${stringResource(string.text_part_one_key)} ${config.appName} " +
                                     stringResource(string.text_part_two_key),
-                            color = textColor,
-                            fontSize = textFontSize,
-                            fontStyle = textFontStyle,
-                            fontWeight = textFontWeight,
-                            fontFamily = textFontFamily
+                            color = style.textColor,
+                            fontSize = style.textFontSize,
+                            fontStyle = style.textFontStyle,
+                            fontWeight = style.textFontWeight,
+                            fontFamily = style.textFontFamily
                         )
-                        if(releaseNotes != null) {
+                        if(config.releaseNotes != null) {
                             Text(
                                 modifier = Modifier
                                     .padding(
@@ -821,7 +667,7 @@ private fun KDUDialog(
                                             1f
                                     )
                                     .verticalScroll(rememberScrollState()),
-                                content = releaseNotes
+                                content = config.releaseNotes
                             )
                         }
                         if(notShowAtNextLaunchOptionEnabled) {
@@ -851,7 +697,7 @@ private fun KDUDialog(
                 if(!isInstalling.value) {
                     TextButton(
                         onClick = {
-                            dismissAction.invoke()
+                            config.dismissAction()
                             show = false
                         }
                     ) {
@@ -864,7 +710,7 @@ private fun KDUDialog(
             confirmButton = {
                 TextButton(
                     onClick = {
-                        confirmAction.invoke()
+                        config.confirmAction()
                         isInstalling.value = !isInstalling.value
                     }
                 ) {

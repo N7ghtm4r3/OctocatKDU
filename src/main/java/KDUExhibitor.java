@@ -1,5 +1,3 @@
-import params.FrequencyVisibility;
-
 import java.util.prefs.Preferences;
 
 /**
