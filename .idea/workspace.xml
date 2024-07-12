@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Avoid to dismiss the dialog when the UpdaterDialog is shown">
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+    <list default="true" id="f4cbaae4-f249-4359-94d5-824dd0d195ac" name="Changes" comment="Fixed the issue of the wrong format of the time when the UpdaterDialog was shown and migrate to kotlin 2.0.0 to fix the strings resources issue">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/params/OctocatKDUConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KDUExhibitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OctocatKDUDialogs.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +48,7 @@
       <list>
         <option value="Kotlin File" />
         <option value="Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -391,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720800880457</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed the issue of the wrong format of the time when the UpdaterDialog was shown and migrate to kotlin 2.0.0 to fix the strings resources issue">
+      <option name="closed" value="true" />
+      <created>1720810027394</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1720810027394</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -424,6 +430,7 @@
     <MESSAGE value="Working on the &quot;hide the dialog at the next launches&quot; feature" />
     <MESSAGE value="Finished the 1.0.3 enhancement" />
     <MESSAGE value="Avoid to dismiss the dialog when the UpdaterDialog is shown" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avoid to dismiss the dialog when the UpdaterDialog is shown" />
+    <MESSAGE value="Fixed the issue of the wrong format of the time when the UpdaterDialog was shown and migrate to kotlin 2.0.0 to fix the strings resources issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the issue of the wrong format of the time when the UpdaterDialog was shown and migrate to kotlin 2.0.0 to fix the strings resources issue" />
   </component>
 </project>

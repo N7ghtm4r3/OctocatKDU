@@ -1,3 +1,5 @@
+import params.FrequencyVisibility;
+
 import java.util.prefs.Preferences;
 
 /**
@@ -8,6 +10,7 @@ import java.util.prefs.Preferences;
  *
  * @since 1.0.3
  */
+//TODO: TO COMMENT
 class KDUExhibitor {
 
     /**
@@ -25,6 +28,16 @@ class KDUExhibitor {
      */
     private static final String LAST_TIME_DIALOG_DISPLAYED_KEY = "last_time_dialog_displayed";
 
+    private final FrequencyVisibility frequencyVisibility;
+
+    public KDUExhibitor() {
+        this(FrequencyVisibility.ALWAYS);
+    }
+
+    public KDUExhibitor(FrequencyVisibility frequencyVisibility) {
+        this.frequencyVisibility = frequencyVisibility;
+    }
+
     /**
      * Method to set the option whether display the dialog at the next launches
      *
@@ -36,12 +49,24 @@ class KDUExhibitor {
 
     /**
      * Method to get whether the dialog can be displayed or not <br>
-     * No-any params required
+     *
+     * @param isFakeDialog: whether the dialog that is testing is the real one or the fake
      *
      * @return whether the dialog can be displayed or not as boolean
      */
-    public boolean canDisplayDialog() {
+    public boolean canDisplayDialog(boolean isFakeDialog) {
+        if(isFakeDialog)
+            return true;
+        return canBeShownAtTheNextLaunch() && isFrequencyVisibilityExceeded();
+    }
+
+    private boolean canBeShownAtTheNextLaunch() {
         return preferences.getBoolean(NOT_SHOW_AT_NEXT_LAUNCH_KEY, true);
+    }
+
+    private boolean isFrequencyVisibilityExceeded() {
+        long lastDisplayedTime = getLastDisplayedTime();
+        return System.currentTimeMillis() - lastDisplayedTime >= frequencyVisibility.getGap();
     }
 
     /**
