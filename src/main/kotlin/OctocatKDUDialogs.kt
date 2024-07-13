@@ -69,23 +69,42 @@ private const val dismiss_update_log_key = "Simulated update canceled successful
  */
 const val last_version = "last_version"
 
-//TODO: TO COMMENT
+/**
+ * The temporal frequency when display the dialog when there is an update available
+ *
+ * @param gap: the gap value used to check if the dialog can be displayed due to exceed of
+ * the frequency visibility chosen
+ *
+ * @since 1.0.4
+ */
 enum class FrequencyVisibility(
     val gap: Long
 ) {
 
+    /**
+     * **ALWAYS** -> the dialog will always be displayed at every launch
+     */
     ALWAYS(
         gap = 0
     ),
 
+    /**
+     * **ONCE_PER_DAY** -> the dialog will be displayed only once per day
+     */
     ONCE_PER_DAY(
         gap = DAYS.toMillis(1)
     ),
 
+    /**
+     * **ONCE_PER_WEEK** -> the dialog will be displayed only once per week
+     */
     ONCE_PER_WEEK(
         gap = DAYS.toMillis(7)
     ),
 
+    /**
+     * **ONCE_PER_MONTH** -> the dialog will be displayed only once per month (considering 30 days value)
+     */
     ONCE_PER_MONTH(
         gap = DAYS.toMillis(30)
     )
@@ -93,6 +112,7 @@ enum class FrequencyVisibility(
 }
 
 /**
+ * Set of configurations for the [FakeUpdaterDialog]
  *
  * @param locale: the locale language to use
  * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
@@ -102,8 +122,9 @@ enum class FrequencyVisibility(
  * @param releaseNotes: the notes of the release
  * @param dismissAction: the action to execute when the dismiss button has been clicked
  * @param confirmAction: the action to execute when the confirm button has been clicked
+ *
+ * @since 1.0.4
  */
-//TODO: TO COMMENT
 open class OctocatKDUFakeConfig(
     val locale: Locale = Locale.getDefault(),
     val notShowAtNextLaunchOptionEnabled: Boolean = false,
@@ -116,17 +137,23 @@ open class OctocatKDUFakeConfig(
 )
 
 /**
+ * Set of configurations for the [UpdaterDialog]
  *
+ * @param frequencyVisibility: the temporal frequency to display or not the dialog (also when there is an update available)
  * @param locale: the locale language to use
  * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
  * update, at the next launches
  * @param appName: the name of the application where the dialog will be shown
+ * @param currentVersion: the current version of the application, it will be used to check if is currently the latest
+ * version available
  * @param onUpdateAvailable: the action to execute if there is an update available and the dialog is shown
- * @param releaseNotes: the notes of the release
  * @param dismissAction: the action to execute when the dismiss button has been clicked
  * @param confirmAction: the action to execute when the confirm button has been clicked
+ *
+ * @since 1.0.4
+ *
+ * @see OctocatKDUFakeConfig
  */
-//TODO: TO COMMENT
 class OctocatKDUConfig(
     val frequencyVisibility: FrequencyVisibility = ALWAYS,
     locale: Locale = Locale.getDefault(),
@@ -148,6 +175,7 @@ class OctocatKDUConfig(
 )
 
 /**
+ * Set of style configurations for the [KDUDialog]
  *
  * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
  * @param shape: the shape of the [AlertDialog]
@@ -163,8 +191,9 @@ class OctocatKDUConfig(
  * @param textFontStyle: the font style for the text of the [AlertDialog]
  * @param textFontWeight: the font weight for the text of the [AlertDialog]
  * @param textFontFamily: the font family for the text of the [AlertDialog]
+ *
+ * @since 1.0.4
  */
-//TODO: TO COMMENT
 data class OctocatKDUStyle(
     val dialogModifier: Modifier = Modifier
         .heightIn(
@@ -219,7 +248,7 @@ data class OctocatKDUStyle(
 @Deprecated(
     message = "This will be removed in the next version",
     replaceWith = ReplaceWith(
-        expression = "[this.FakeUpdaterDialog()]" //TODO: TO SET THE CORRECT PARAMATERS
+        expression = "[this.FakeUpdaterDialog(showFakeUpdate, config, style)]"
     ),
     level = DeprecationLevel.WARNING
 )
@@ -336,7 +365,7 @@ fun FakeUpdaterDialog(
 @Deprecated(
     message = "This will be removed in the next version",
     replaceWith = ReplaceWith(
-        expression = "[this.UpdaterDialog()]" //TODO: TO SET THE CORRECT PARAMATERS
+        expression = "[this.UpdaterDialog(config, style)]"
     ),
     level = DeprecationLevel.WARNING
 )
@@ -438,7 +467,7 @@ fun UpdaterDialog(
 @Deprecated(
     message = "This will be removed in the next version",
     replaceWith = ReplaceWith(
-        expression = "[this.KDUDialog()]" //TODO: TO SET THE CORRECT PARAMATERS
+        expression = "[this.KDUDialog(isReal, isInstalling, kduExhibitor, config, style)]"
     ),
     level = DeprecationLevel.WARNING
 )
@@ -607,8 +636,12 @@ private fun KDUDialog(
 /**
  * Function to create the fake update dialog for testing purposes
  *
+ * @param showFakeUpdate: whether show the dialog
+ * @param config: the configuration to use for the dialog
+ * @param style: the style configuration to use for the dialog
+ *
+ * @since 1.0.4
  */
-//TODO: TO COMMENT
 @Wrapper
 @Composable
 fun FakeUpdaterDialog(
@@ -659,8 +692,11 @@ fun FakeUpdaterDialog(
 /**
  * Function to create the update dialog to update the application to the latest release
  *
+ * @param config: the configuration to use for the dialog
+ * @param style: the style configuration to use for the dialog
+ *
+ * @since 1.0.4
  */
-//TODO: TO COMMENT
 @Wrapper
 @Composable
 fun UpdaterDialog(
@@ -702,8 +738,12 @@ fun UpdaterDialog(
  *
  * @param isReal: whether the dialog is the [FakeUpdaterDialog] or the [UpdaterDialog]
  * @param isInstalling: the current status of the dialog
+ * @param kduExhibitor: the helper to manage the display usage of the dialog
+ * @param config: the configuration to use for the dialog
+ * @param style: the style configuration to use for the dialog
+ *
+ * @since 1.0.4
  */
-//TODO: TO COMMENT
 @Composable
 private fun KDUDialog(
     isReal: Boolean = true,

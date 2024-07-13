@@ -111,15 +111,21 @@ Content example:
 Use the fake updater dialog to testing the workflow of your application with the OctocatKDU
 
 ```kotlin
-FakeUpdaterDialog(
-  appName = "MyApplication",
-  onUpdateAvailable = {
-    // the application flow when there is an update available and the dialog is displayed
-  },
-  dismissAction = {
-      // the rest of the application flow
-  }
-)
+  FakeUpdaterDialog(
+    config = OctocatKDUFakeConfig(
+      appName = "MyApplication",
+      onUpdateAvailable = {
+        // the application flow when there is an update available and the dialog is displayed
+      },
+      releaseNotes = releaseNotes, // if there are
+      dismissAction = {
+        // the rest of the application flow
+      },
+      confirmAction = { isInstalling ->
+        // the action to execute if the user chosen to update the current version
+      }
+    )
+  )
 ```
 
 #### Real workflow
@@ -127,16 +133,21 @@ FakeUpdaterDialog(
 Use the real updater dialog in the release
 
 ```kotlin
-UpdaterDialog(
-  appName = "MyApplication",
-  currentVersion = "current_version_of_the_application",
-  onUpdateAvailable = {
-    // the application flow when there is an update available and the dialog is displayed
-  },
-  dismissAction = {
-    // the rest of the application flow
-  }
-)
+  UpdaterDialog(
+    config = OctocatKDUConfig(
+      appName = "MyApplication",
+      currentVersion = "current_version_of_the_application",
+      onUpdateAvailable = {
+        // the application flow when there is an update available and the dialog is displayed
+      },
+      dismissAction = {
+        // the rest of the application flow
+      },
+      confirmAction = { isInstalling ->
+        // the action to execute if the user chosen to update the current version
+      }
+    )
+  )
 ```
 
 #### Customization
@@ -150,13 +161,19 @@ The customization can be both with the faker and with the real dialog
   ```kotlin
   MyApplicationTheme {
     FakeUpdaterDialog(
-      appName = "MyApplication",
-      onUpdateAvailable = {
-        // the application flow when there is an update available and the dialog is displayed
-      },
-      dismissAction = {
+      config = OctocatKDUFakeConfig(
+        appName = "MyApplication",
+        onUpdateAvailable = {
+          // the application flow when there is an update available and the dialog is displayed
+        },
+        releaseNotes = releaseNotes, // if there are
+        dismissAction = {
           // the rest of the application flow
-      }
+        },
+        confirmAction = { isInstalling ->
+          // the action to execute if the user chosen to update the current version
+        }
+      )
     )
   }
   ```
@@ -167,20 +184,35 @@ The customization can be both with the faker and with the real dialog
 
   ```kotlin
   FakeUpdaterDialog(
-    locale = // the locale language to use",
-    shape = // the shape for the dialog,
-    titleModifier = // the modifier for the title of the dialog, 
-    titleColor = // the color for the title of the dialog,
-    titleFontSize = // the size for the title of the dialog,
-    titleFontStyle = // the style for the title of the dialog,
-    titleFontWeight = // the weight for the title of the dialog,
-    titleFontFamily = // the font family for the title of the dialog,
-    textModifier = // the modifier for the text of the dialog,
-    textColor = // the color for the text of the dialog,
-    textFontSize = // the size for the text of the dialog,
-    textFontStyle = // the style for the text of the dialog,
-    textFontWeight = // the weight for the text of the dialog,
-    textFontFamily = // the font family for the text of the dialog,
+      config = OctocatKDUFakeConfig(
+          appName = "MyApplication",
+          onUpdateAvailable = {
+              // the application flow when there is an update available and the dialog is displayed
+          },
+          releaseNotes = releaseNotes, // if there are
+          dismissAction = {
+              // the rest of the application flow
+          },
+          confirmAction = { isInstalling ->
+              // the action to execute if the user chosen to update the current version
+          }
+      ),
+      style = OctocatKDUStyle(
+          locale = // the locale language to use",
+          shape = // the shape for the dialog,
+          titleModifier = // the modifier for the title of the dialog, 
+          titleColor = // the color for the title of the dialog,
+          titleFontSize = // the size for the title of the dialog,
+          titleFontStyle = // the style for the title of the dialog,
+          titleFontWeight = // the weight for the title of the dialog,
+          titleFontFamily = // the font family for the title of the dialog,
+          textModifier = // the modifier for the text of the dialog,
+          textColor = // the color for the text of the dialog,
+          textFontSize = // the size for the text of the dialog,
+          textFontStyle = // the style for the text of the dialog,
+          textFontWeight = // the weight for the text of the dialog,
+          textFontFamily = // the font family for the text of the dialog
+      )
   )
   ```
 
@@ -189,10 +221,26 @@ The customization can be both with the faker and with the real dialog
 - `not_show_at_next_launch`
   ```kotlin
   FakeUpdaterDialog(
-    ...
-    // allow the user to avoid to be warned about new updates available hiding the dialog
-    notShowAtNextLaunchOptionEnabled = false / true
-    ...
+  
+    config = OctocatKDUFakeConfig(
+      ...
+      // allow the user to avoid to be warned about new updates available hiding the dialog
+      notShowAtNextLaunchOptionEnabled = false / true
+      ...
+    )
+  )
+  ```
+  
+- `not_show_at_next_launch`
+  ```kotlin
+  UpdaterDialog(
+  
+    config = OctocatKDUConfig(
+      ...
+      // allow the user to be warned about new updates available only in a specific intervals
+      frequencyVisibility = ENUM[ALWAYS, ONCE_PER_DAY, ONCE_PER_WEEK, ONCE_PER_MONTH]
+      ...
+    )
   )
   ```
 
