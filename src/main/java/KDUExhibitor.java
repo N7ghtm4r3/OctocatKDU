@@ -26,6 +26,30 @@ class KDUExhibitor {
     private static final String LAST_TIME_DIALOG_DISPLAYED_KEY = "last_time_dialog_displayed";
 
     /**
+     * {@code frequencyVisibility} the temporal frequency to display or not the dialog (also when there is an update available)
+     */
+    private final FrequencyVisibility frequencyVisibility;
+
+    /**
+     * Constructor to init the {@link KDUExhibitor} class
+     *
+     * No-any params required
+     */
+    public KDUExhibitor() {
+        this(FrequencyVisibility.ALWAYS);
+    }
+
+    /**
+     * Constructor to init the {@link KDUExhibitor} class
+     *
+     * @param frequencyVisibility: the temporal frequency to display or not the dialog (also when there is an update available)
+     *
+     */
+    public KDUExhibitor(FrequencyVisibility frequencyVisibility) {
+        this.frequencyVisibility = frequencyVisibility;
+    }
+
+    /**
      * Method to set the option whether display the dialog at the next launches
      *
      * @param notShowAtNextLaunch: flag to set to display or not the dialog
@@ -36,12 +60,39 @@ class KDUExhibitor {
 
     /**
      * Method to get whether the dialog can be displayed or not <br>
-     * No-any params required
+     *
+     * @param isFakeDialog: whether the dialog that is testing is the real one or the fake
      *
      * @return whether the dialog can be displayed or not as boolean
      */
-    public boolean canDisplayDialog() {
+    public boolean canDisplayDialog(boolean isFakeDialog) {
+        if(isFakeDialog)
+            return true;
+        return canBeShownAtTheNextLaunch() && isFrequencyVisibilityExceeded();
+    }
+
+    /**
+     * Method to get whether the dialog can be shown at the next launch, so if the user has not selected the option
+     * to not show anymore the dialog <br>
+     * No-any params required
+     *
+     * @return whether the dialog can be shown at the next launch as boolean
+     */
+    private boolean canBeShownAtTheNextLaunch() {
         return preferences.getBoolean(NOT_SHOW_AT_NEXT_LAUNCH_KEY, true);
+    }
+
+    /**
+     * Method to get whether the last time when the dialog has been displayed has exceeded comparing it to the
+     * {@link #frequencyVisibility} chosen <br>
+     *
+     * No-any params required
+     *
+     * @return whether the last time when the dialog has been displayed has exceeded as boolean
+     */
+    private boolean isFrequencyVisibilityExceeded() {
+        long lastDisplayedTime = getLastDisplayedTime();
+        return System.currentTimeMillis() - lastDisplayedTime >= frequencyVisibility.getGap();
     }
 
     /**
@@ -59,7 +110,7 @@ class KDUExhibitor {
      *
      * @return the last time when the dialog has been shown as long
      */
-    public long getLastDisplayedTime() {
+    private long getLastDisplayedTime() {
         return preferences.getLong(LAST_TIME_DIALOG_DISPLAYED_KEY, System.currentTimeMillis());
     }
 
