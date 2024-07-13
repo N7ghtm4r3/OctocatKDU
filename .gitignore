@@ -44,3 +44,4 @@ bin/
 ### Custom
 
 *.config
+workspace.xml

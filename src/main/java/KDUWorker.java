@@ -14,7 +14,6 @@ import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import static com.tecknobit.apimanager.apis.APIRequest.DEFAULT_ERROR_RESPONSE;
 import static com.tecknobit.apimanager.apis.APIRequest.downloadFile;
@@ -250,13 +249,7 @@ class KDUWorker {
      * No-any params required
      */
     public void stopInstallation() {
-        executor.shutdown();
-        try {
-            if (!executor.awaitTermination(800, TimeUnit.MILLISECONDS))
-                executor.shutdownNow();
-        } catch (InterruptedException e) {
-            executor.shutdownNow();
-        }
+        executor.shutdownNow();
         executor = newCachedThreadPool();
         ExecutorService service = newSingleThreadExecutor();
         service.execute(() -> {

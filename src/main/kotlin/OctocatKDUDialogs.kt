@@ -1,4 +1,5 @@
 
+import FrequencyVisibility.ALWAYS
 import KDUWorker.logError
 import KDUWorker.logMessage
 import androidx.compose.foundation.layout.*
@@ -27,6 +28,7 @@ import com.tecknobit.octocatkdu.generated.resources.*
 import com.tecknobit.octocatkdu.generated.resources.Res.string
 import org.jetbrains.compose.resources.stringResource
 import java.util.*
+import java.util.concurrent.TimeUnit.DAYS
 import kotlin.system.exitProcess
 
 /**
@@ -37,6 +39,15 @@ import kotlin.system.exitProcess
     level = DeprecationLevel.WARNING
 )
 private const val last_depr_version = "last_version"
+
+/**
+ * **kduExhibitor** -> the helper to manage the dialog whether it can be shown or not shown
+ */
+@Deprecated(
+    message = "This will be removed in the next version",
+    level = DeprecationLevel.WARNING
+)
+private val kduExhibitor = KDUExhibitor()
 
 /**
  * **no_update_log_key** -> log text used in the [FakeUpdaterDialog] when the no update button is clicked
@@ -54,13 +65,127 @@ private const val installation_message_key = "Installation simulated successfull
 private const val dismiss_update_log_key = "Simulated update canceled successfully..."
 
 /**
- * **kduExhibitor** -> the helper to manage the dialog whether it can be shown or not shown
+ * **last_version** -> last version text
  */
-@Deprecated(
-    message = "This will be removed in the next version",
-    level = DeprecationLevel.WARNING
+const val last_version = "last_version"
+
+//TODO: TO COMMENT
+enum class FrequencyVisibility(
+    val gap: Long
+) {
+
+    ALWAYS(
+        gap = 0
+    ),
+
+    ONCE_PER_DAY(
+        gap = DAYS.toMillis(1)
+    ),
+
+    ONCE_PER_WEEK(
+        gap = DAYS.toMillis(7)
+    ),
+
+    ONCE_PER_MONTH(
+        gap = DAYS.toMillis(30)
+    )
+
+}
+
+/**
+ *
+ * @param locale: the locale language to use
+ * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
+ * update, at the next launches
+ * @param appName: the name of the application where the dialog will be shown
+ * @param onUpdateAvailable: the action to execute if there is an update available and the dialog is shown
+ * @param releaseNotes: the notes of the release
+ * @param dismissAction: the action to execute when the dismiss button has been clicked
+ * @param confirmAction: the action to execute when the confirm button has been clicked
+ */
+//TODO: TO COMMENT
+open class OctocatKDUFakeConfig(
+    val locale: Locale = Locale.getDefault(),
+    val notShowAtNextLaunchOptionEnabled: Boolean = false,
+    val appName: String,
+    var newVersion: String? = last_version,
+    val onUpdateAvailable: () -> Unit,
+    var releaseNotes: String? = null,
+    var dismissAction: () -> Unit = {},
+    var confirmAction: (Boolean) -> Unit = {},
 )
-private val kduExhibitor = KDUExhibitor()
+
+/**
+ *
+ * @param locale: the locale language to use
+ * @param notShowAtNextLaunchOptionEnabled: whether enable the option for the user to not display, so not be warned about a new
+ * update, at the next launches
+ * @param appName: the name of the application where the dialog will be shown
+ * @param onUpdateAvailable: the action to execute if there is an update available and the dialog is shown
+ * @param releaseNotes: the notes of the release
+ * @param dismissAction: the action to execute when the dismiss button has been clicked
+ * @param confirmAction: the action to execute when the confirm button has been clicked
+ */
+//TODO: TO COMMENT
+class OctocatKDUConfig(
+    val frequencyVisibility: FrequencyVisibility = ALWAYS,
+    locale: Locale = Locale.getDefault(),
+    notShowAtNextLaunchOptionEnabled: Boolean = false,
+    appName: String,
+    val currentVersion: String,
+    onUpdateAvailable: () -> Unit,
+    dismissAction: () -> Unit = {},
+    confirmAction: (Boolean) -> Unit = {},
+) : OctocatKDUFakeConfig(
+    locale = locale,
+    notShowAtNextLaunchOptionEnabled = notShowAtNextLaunchOptionEnabled,
+    appName = appName,
+    newVersion = null,
+    onUpdateAvailable = onUpdateAvailable,
+    releaseNotes = null,
+    dismissAction = dismissAction,
+    confirmAction = confirmAction
+)
+
+/**
+ *
+ * @param dialogModifier: the [Modifier] for the [AlertDialog] shown
+ * @param shape: the shape of the [AlertDialog]
+ * @param titleModifier: the dialogModifier for the title of the [AlertDialog]
+ * @param titleColor: the color of the title of the [AlertDialog]
+ * @param titleFontSize: the font size for the title of the [AlertDialog]
+ * @param titleFontStyle: the font style for the title of the [AlertDialog]
+ * @param titleFontWeight: the font weight for the title of the [AlertDialog]
+ * @param titleFontFamily: the font family for the title of the [AlertDialog]
+ * @param textModifier: the dialogModifier for the text of the [AlertDialog]
+ * @param textColor: the color of the text of the [AlertDialog]
+ * @param textFontSize: the font size for the text of the [AlertDialog]
+ * @param textFontStyle: the font style for the text of the [AlertDialog]
+ * @param textFontWeight: the font weight for the text of the [AlertDialog]
+ * @param textFontFamily: the font family for the text of the [AlertDialog]
+ */
+//TODO: TO COMMENT
+data class OctocatKDUStyle(
+    val dialogModifier: Modifier = Modifier
+        .heightIn(
+            max = 500.dp
+        ),
+    val shape: Shape = RoundedCornerShape(
+        size = 15.dp
+    ),
+    val titleModifier: Modifier = Modifier,
+    val titleColor: Color = Color.Unspecified,
+    val titleFontSize: TextUnit = 18.sp,
+    val titleFontStyle: FontStyle? = null,
+    val titleFontWeight: FontWeight? = null,
+    val titleFontFamily: FontFamily? = null,
+    val textModifier: Modifier = Modifier,
+    val textColor: Color = Color.Unspecified,
+    val textFontSize: TextUnit = 16.sp,
+    val textFontStyle: FontStyle? = null,
+    val textFontWeight: FontWeight? = null,
+    val textFontFamily: FontFamily? = null
+)
 
 /**
  * Function to create the fake update dialog for testing purposes
@@ -488,24 +613,21 @@ private fun KDUDialog(
 @Composable
 fun FakeUpdaterDialog(
     showFakeUpdate: Boolean = true,
-    config: OctocatKDUConfig,
-    style: OctocatKDUStyle = OctocatKDUStyle(),
-    currentVersion: String,
-    dismissAction: () -> Unit
+    config: OctocatKDUFakeConfig,
+    style: OctocatKDUStyle = OctocatKDUStyle()
 ) {
     var timer = Timer()
     val isInstalling = remember { mutableStateOf(false) }
     if(showFakeUpdate) {
-        val kduExhibitor = KDUExhibitor(
-            config.frequencyVisibility
-        )
+        val originalDismissAction = config.dismissAction
         config.dismissAction = {
             logMessage(
                 no_update_log_key,
                 YELLOW
             )
-            dismissAction.invoke()
+            originalDismissAction.invoke()
         }
+        val originalConfirmAction = config.confirmAction
         config.confirmAction = {
             if(!isInstalling.value) {
                 timer.schedule(object : TimerTask() {
@@ -522,16 +644,16 @@ fun FakeUpdaterDialog(
                 timer.cancel()
                 timer = Timer()
             }
+            originalConfirmAction.invoke(isInstalling.value)
         }
         KDUDialog(
             isReal = false,
             isInstalling = isInstalling,
-            kduExhibitor = kduExhibitor,
             config = config,
             style = style
         )
     } else
-        dismissAction.invoke()
+        config.dismissAction()
 }
 
 /**
@@ -544,7 +666,6 @@ fun FakeUpdaterDialog(
 fun UpdaterDialog(
     config: OctocatKDUConfig,
     style: OctocatKDUStyle = OctocatKDUStyle(),
-    currentVersion: String
 ) {
     val kduExhibitor = KDUExhibitor(
         config.frequencyVisibility
@@ -552,14 +673,17 @@ fun UpdaterDialog(
     if(kduExhibitor.canDisplayDialog(false)) {
         val kduWorker = KDUWorker(config.appName)
         val isInstalling = remember { mutableStateOf(false) }
-        if(kduWorker.canBeUpdated(currentVersion)) {
+        if(kduWorker.canBeUpdated(config.currentVersion)) {
             kduExhibitor.refreshDisplayedTime()
+            config.releaseNotes = kduWorker.releaseNotes
+            config.newVersion = kduWorker.lastVersionCode
+            val originalConfirmAction = config.confirmAction
             config.confirmAction = {
-                config.confirmAction.invoke()
                 if(!isInstalling.value)
                     kduWorker.installNewVersion()
                 else
                     kduWorker.stopInstallation()
+                originalConfirmAction.invoke(isInstalling.value)
             }
             KDUDialog(
                 isInstalling = isInstalling,
@@ -584,8 +708,8 @@ fun UpdaterDialog(
 private fun KDUDialog(
     isReal: Boolean = true,
     isInstalling: MutableState<Boolean>,
-    kduExhibitor: KDUExhibitor,
-    config: OctocatKDUConfig,
+    kduExhibitor: KDUExhibitor = KDUExhibitor(),
+    config: OctocatKDUFakeConfig,
     style: OctocatKDUStyle
 ) {
     val currentDefaultLocale = Locale.getDefault()
@@ -667,7 +791,7 @@ private fun KDUDialog(
                                             1f
                                     )
                                     .verticalScroll(rememberScrollState()),
-                                content = config.releaseNotes
+                                content = config.releaseNotes!!
                             )
                         }
                         if(notShowAtNextLaunchOptionEnabled) {
@@ -710,7 +834,7 @@ private fun KDUDialog(
             confirmButton = {
                 TextButton(
                     onClick = {
-                        config.confirmAction()
+                        config.confirmAction(!isInstalling.value)
                         isInstalling.value = !isInstalling.value
                     }
                 ) {
