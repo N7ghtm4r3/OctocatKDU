@@ -1,6 +1,6 @@
 # OctocatKDU
 
-**v1.0.4**
+**v1.0.5**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
@@ -36,7 +36,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.4'
+        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.5'
     }
     ```
 
@@ -44,7 +44,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.4")
+        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.5")
     }
     ```
 
@@ -69,14 +69,14 @@ Add the JitPack repository to your build file
 <dependency>
   <groupId>com.github.N7ghtm4r3</groupId>
   <artifactId>OctocatKDU</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
 </dependency>
 ```
 ### Latest supported properties configuration
 
 ``` properties
-kotlin.version=2.0.0
-compose.version=1.6.11
+kotlin.version=2.0.21
+compose.version=1.7.3
 ```
 
 ### Usage/Examples
@@ -282,16 +282,15 @@ Thank you for your help!
 [![](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.oracle.com/java/)
 [![](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 
-[![](https://jitpack.io/v/N7ghtm4r3/OctocatKDU.svg)](https://jitpack.io/#N7ghtm4r3/OctocatKDU)
-
 ## Donations
 
 If you want support project and developer
 
-| Crypto                                                                                              | Address                                        | Network  |
-|-----------------------------------------------------------------------------------------------------|------------------------------------------------|----------|
-| ![](https://img.shields.io/badge/Bitcoin-000000?style=for-the-badge&logo=bitcoin&logoColor=white)   | **3H3jyCzcRmnxroHthuXh22GXXSmizin2yp**         | Bitcoin  |
-| ![](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white) | **0x1b45bc41efeb3ed655b078f95086f25fc83345c4** | Ethereum |
+| Crypto                                                                                              | Address                                          | Network  |
+|-----------------------------------------------------------------------------------------------------|--------------------------------------------------|----------|
+| ![](https://img.shields.io/badge/Bitcoin-000000?style=for-the-badge&logo=bitcoin&logoColor=white)   | **3H3jyCzcRmnxroHthuXh22GXXSmizin2yp**           | Bitcoin  |
+| ![](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white) | **0x1b45bc41efeb3ed655b078f95086f25fc83345c4**   | Ethereum |
+| ![](https://img.shields.io/badge/Solana-000?style=for-the-badge&logo=Solana&logoColor=9945FF)       | **AtPjUnxYFHw3a6Si9HinQtyPTqsdbfdKX3dJ1xiDjbrL** | Solana   |
 
 If you want support project and developer with <a href="https://www.paypal.com/donate/?hosted_button_id=5QMN5UQH7LDT4">PayPal</a>
 

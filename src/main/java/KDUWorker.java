@@ -142,7 +142,6 @@ class KDUWorker {
     /**
      * Method to read the current resources stored from  and to load the
      * instance <br>
-     * No-any params required
      * @throws IOException when an error reading the resources file occurred
      */
     private JsonHelper getConfig() throws IOException {
@@ -159,7 +158,7 @@ class KDUWorker {
 
     /**
      * Method to check whether the application can be updated to the latest version available
-     * @param currentVersion: the current version of the application
+     * @param currentVersion The current version of the application
      * @return whether the application can be updated to the latest version available as boolean
      */
     public boolean canBeUpdated(String currentVersion) {
@@ -180,7 +179,6 @@ class KDUWorker {
      * Method to install the new version. <br>
      * After the installation of the correct executable file will be closed the application and launch that executable
      * to install the new version <br>
-     * No-any params required
      *
      * @apiNote will be invoked {@link #installAndRunExecutable(String, String)} to perform this task
      */
@@ -218,8 +216,8 @@ class KDUWorker {
     /**
      * Method to effectively install and run the executable for the installation
      *
-     * @param downloadUrl: the url to download the executable
-     * @param executableSuffix: the suffix of the executable: appimage, deb, rmp, dkg, pkg, exe or msi
+     * @param downloadUrl The url to download the executable
+     * @param executableSuffix The suffix of the executable: appimage, deb, rmp, dkg, pkg, exe or msi
      */
     private void installAndRunExecutable(String downloadUrl, String executableSuffix) {
         if (downloadUrl != null) {
@@ -246,7 +244,6 @@ class KDUWorker {
 
     /**
      * Method to stop the current installation, will be also deleted the executable file if has been already saved <br>
-     * No-any params required
      */
     public void stopInstallation() {
         executor.shutdownNow();
@@ -263,7 +260,7 @@ class KDUWorker {
 
     /**
      * Method to log an error on run console
-     * @param error: the error to log
+     * @param error The error to log
      */
     public static void logError(String error) {
         logMessage(error, RED);
@@ -271,7 +268,7 @@ class KDUWorker {
 
     /**
      * Method to log a message on run console
-     * @param message: the message to log
+     * @param message The message to log
      */
     public static void logMessage(String message, ANSIColor color) {
         if (!message.startsWith(" "))
@@ -281,7 +278,6 @@ class KDUWorker {
 
     /**
      * Method to get the current OS where the application is running <br>
-     * No-any params required
      *
      * @return the current OS where the application is running instance as {@link OS}
      */
@@ -298,7 +294,7 @@ class KDUWorker {
 
     /**
      * Method to get whether the suffix argument is correct for Linux
-     * @param suffix: the suffix to check
+     * @param suffix The suffix to check
      * @return whether the suffix argument is correct for Linux as boolean
      */
     private boolean isLinuxExecutable(String suffix) {
@@ -307,7 +303,7 @@ class KDUWorker {
 
     /**
      * Method to get whether the suffix argument is correct for Windows
-     * @param suffix: the suffix to check
+     * @param suffix The suffix to check
      * @return whether the suffix argument is correct for Windows as boolean
      */
     private boolean isWindowsExecutable(String suffix) {
@@ -316,7 +312,7 @@ class KDUWorker {
 
     /**
      * Method to get whether the suffix argument is correct for macOS
-     * @param suffix: the suffix to check
+     * @param suffix The suffix to check
      * @return whether the suffix argument is correct for macOS as boolean
      */
     private boolean isMacOsExecutable(String suffix) {
@@ -325,7 +321,6 @@ class KDUWorker {
 
     /**
      * Method to get the latest version code <br>
-     * No-any params required
      *
      * @return the latest version code as {@link String}
      */
@@ -337,7 +332,6 @@ class KDUWorker {
 
     /**
      * Method to get the latest version notes <br>
-     * No-any params required
      *
      * @return the latest version notes as {@link String}
      */
