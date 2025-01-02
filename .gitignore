@@ -45,3 +45,4 @@ bin/
 
 *.config
 workspace.xml
+gradle.properties

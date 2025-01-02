@@ -32,8 +32,6 @@ class KDUExhibitor {
 
     /**
      * Constructor to init the {@link KDUExhibitor} class
-     *
-     * No-any params required
      */
     public KDUExhibitor() {
         this(FrequencyVisibility.ALWAYS);
@@ -42,7 +40,7 @@ class KDUExhibitor {
     /**
      * Constructor to init the {@link KDUExhibitor} class
      *
-     * @param frequencyVisibility: the temporal frequency to display or not the dialog (also when there is an update available)
+     * @param frequencyVisibility The temporal frequency to display or not the dialog (also when there is an update available)
      *
      */
     public KDUExhibitor(FrequencyVisibility frequencyVisibility) {
@@ -52,7 +50,7 @@ class KDUExhibitor {
     /**
      * Method to set the option whether display the dialog at the next launches
      *
-     * @param notShowAtNextLaunch: flag to set to display or not the dialog
+     * @param notShowAtNextLaunch flag to set to display or not the dialog
      */
     public void notShowAtNextLaunch(boolean notShowAtNextLaunch) {
         preferences.putBoolean(NOT_SHOW_AT_NEXT_LAUNCH_KEY, !notShowAtNextLaunch);
@@ -61,7 +59,7 @@ class KDUExhibitor {
     /**
      * Method to get whether the dialog can be displayed or not <br>
      *
-     * @param isFakeDialog: whether the dialog that is testing is the real one or the fake
+     * @param isFakeDialog Whether the dialog that is testing is the real one or the fake
      *
      * @return whether the dialog can be displayed or not as boolean
      */
@@ -74,7 +72,6 @@ class KDUExhibitor {
     /**
      * Method to get whether the dialog can be shown at the next launch, so if the user has not selected the option
      * to not show anymore the dialog <br>
-     * No-any params required
      *
      * @return whether the dialog can be shown at the next launch as boolean
      */
@@ -86,7 +83,6 @@ class KDUExhibitor {
      * Method to get whether the last time when the dialog has been displayed has exceeded comparing it to the
      * {@link #frequencyVisibility} chosen <br>
      *
-     * No-any params required
      *
      * @return whether the last time when the dialog has been displayed has exceeded as boolean
      */
@@ -97,7 +93,6 @@ class KDUExhibitor {
 
     /**
      * Method to refresh the last time when the dialog has been shown <br>
-     * No-any params required
      *
      */
     public void refreshDisplayedTime() {
@@ -106,7 +101,6 @@ class KDUExhibitor {
 
     /**
      * Method to get the last time when the dialog has been shown <br>
-     * No-any params required
      *
      * @return the last time when the dialog has been shown as long
      */
