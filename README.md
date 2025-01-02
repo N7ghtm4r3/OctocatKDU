@@ -1,18 +1,30 @@
 # OctocatKDU
 
+![Maven Central](https://img.shields.io/maven-central/v/io.github.n7ghtm4r3/octocatkdu.svg?label=Maven%20Central)
+
+![Static Badge](https://img.shields.io/badge/desktop-006874?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
+
 **v1.0.5**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
 ## Implementation
 
-Add the JitPack repository to your build file
+### Version catalog
+
+```gradle
+[versions]
+octocatkdu = "1.0.5"
+
+[libraries]
+octocatkdu = { module = "io.github.n7ghtm4r3:octocatkdu", version.ref = "octocatkdu" }
+```
 
 ### Gradle
 
-- Add it in your root build.gradle at the end of repositories
+Add the JitPack repository to your build file
 
-  #### Gradle (Short)
+- Add it in your root build.gradle at the end of repositories
 
     ```gradle
     repositories {
@@ -32,11 +44,9 @@ Add the JitPack repository to your build file
 
 - Add the dependency
 
-  #### Gradle (Short)
-
     ```gradle
     dependencies {
-        implementation 'com.github.N7ghtm4r3:OctocatKDU:1.0.5'
+        implementation 'io.github.n7ghtm4r3:octocatkdu:1.0.5'
     }
     ```
 
@@ -44,218 +54,17 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("com.github.N7ghtm4r3:OctocatKDU:1.0.5")
+        implementation("io.github.n7ghtm4r3:octocatkdu:1.0.5")
     }
     ```
 
-### Maven
+  #### Gradle (version catalog)
 
-- Add it in your root build.gradle at the end of repositories
-
-```xml
-
-<repositories>
-  <repository>
-    <id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-  </repository>
-</repositories>
-```
-
-- Add the dependency
-
-```xml
-
-<dependency>
-  <groupId>com.github.N7ghtm4r3</groupId>
-  <artifactId>OctocatKDU</artifactId>
-  <version>1.0.5</version>
-</dependency>
-```
-### Latest supported properties configuration
-
-``` properties
-kotlin.version=2.0.21
-compose.version=1.7.3
-```
-
-### Usage/Examples
-
-#### Resources file
-
-You must place the resource file, named **octocat_kdu.config**, in the resources folder of your application:
-
-> [!CAUTION]  
-> Note: you must keep this file safe and not share in public repositories, but keep in local to be included only in the 
-> executable file, because it contains sensitive data like the GitHub's personal access token 
-
-``` bash
-src
-|-- main
-    |-- resources
-    |   |-- octocat_kdu.config
-```
-
-Content example:
-
-```json
-{
-  "personal_access_token": "your_personal_access_token_for_github",
-  "owner": "owner_of_the_repository_of_the_application",
-  "repo": "the_repository_of_the_application"
-}
-```
-
-#### Testing purposes
-
-Use the fake updater dialog to testing the workflow of your application with the OctocatKDU
-
-```kotlin
-  FakeUpdaterDialog(
-    config = OctocatKDUFakeConfig(
-      appName = "MyApplication",
-      onUpdateAvailable = {
-        // the application flow when there is an update available and the dialog is displayed
-      },
-      releaseNotes = releaseNotes, // if there are
-      dismissAction = {
-        // the rest of the application flow
-      },
-      confirmAction = { isInstalling ->
-        // the action to execute if the user chosen to update the current version
-      }
-    )
-  )
-```
-
-#### Real workflow
-
-Use the real updater dialog in the release
-
-```kotlin
-  UpdaterDialog(
-    config = OctocatKDUConfig(
-      appName = "MyApplication",
-      currentVersion = "current_version_of_the_application",
-      onUpdateAvailable = {
-        // the application flow when there is an update available and the dialog is displayed
-      },
-      dismissAction = {
-        // the rest of the application flow
-      },
-      confirmAction = { isInstalling ->
-        // the action to execute if the user chosen to update the current version
-      }
-    )
-  )
-```
-
-#### Customization
-
-The customization can be both with the faker and with the real dialog
-
-- Application theme
-
-  Customize the dialog for your application theme 
-  
-  ```kotlin
-  MyApplicationTheme {
-    FakeUpdaterDialog(
-      config = OctocatKDUFakeConfig(
-        appName = "MyApplication",
-        onUpdateAvailable = {
-          // the application flow when there is an update available and the dialog is displayed
-        },
-        releaseNotes = releaseNotes, // if there are
-        dismissAction = {
-          // the rest of the application flow
-        },
-        confirmAction = { isInstalling ->
-          // the action to execute if the user chosen to update the current version
-        }
-      )
-    )
-  }
-  ```
-  
-- Specific for the dialog
-  
-  Customize only the dialog theme
-
-  ```kotlin
-  FakeUpdaterDialog(
-      config = OctocatKDUFakeConfig(
-          appName = "MyApplication",
-          onUpdateAvailable = {
-              // the application flow when there is an update available and the dialog is displayed
-          },
-          releaseNotes = releaseNotes, // if there are
-          dismissAction = {
-              // the rest of the application flow
-          },
-          confirmAction = { isInstalling ->
-              // the action to execute if the user chosen to update the current version
-          }
-      ),
-      style = OctocatKDUStyle(
-          locale = // the locale language to use",
-          shape = // the shape for the dialog,
-          titleModifier = // the modifier for the title of the dialog, 
-          titleColor = // the color for the title of the dialog,
-          titleFontSize = // the size for the title of the dialog,
-          titleFontStyle = // the style for the title of the dialog,
-          titleFontWeight = // the weight for the title of the dialog,
-          titleFontFamily = // the font family for the title of the dialog,
-          textModifier = // the modifier for the text of the dialog,
-          textColor = // the color for the text of the dialog,
-          textFontSize = // the size for the text of the dialog,
-          textFontStyle = // the style for the text of the dialog,
-          textFontWeight = // the weight for the text of the dialog,
-          textFontFamily = // the font family for the text of the dialog
-      )
-  )
-  ```
-
-#### Custom options that can be activated
-
-- `not_show_at_next_launch`
-  ```kotlin
-  FakeUpdaterDialog(
-  
-    config = OctocatKDUFakeConfig(
-      ...
-      // allow the user to avoid to be warned about new updates available hiding the dialog
-      notShowAtNextLaunchOptionEnabled = false / true
-      ...
-    )
-  )
-  ```
-  
-- `not_show_at_next_launch`
-  ```kotlin
-  UpdaterDialog(
-  
-    config = OctocatKDUConfig(
-      ...
-      // allow the user to be warned about new updates available only in a specific intervals
-      frequencyVisibility = ENUM[ALWAYS, ONCE_PER_DAY, ONCE_PER_WEEK, ONCE_PER_MONTH]
-      ...
-    )
-  )
-  ```
-
-#### Release distribution
-
-> [!IMPORTANT]  
->  When you need to create the release distribution you must insert in the **compose-desktop.pro** file this proguard setting
->  to correctly run the distribution:
-> 
-> ```txt 
-> -keepclassmembers enum * { 
->    public static **[] values();
->    public static ** valueOf(java.lang.String);
-> }
-> ```
+    ```gradle
+    dependencies {
+        implementation(libs.octocatkdu)
+    }
+    ```
 
 ## Appearance (default application theme)
 
