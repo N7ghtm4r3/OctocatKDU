@@ -70,7 +70,7 @@ Add the JitPack repository to your build file
 
 ``` properties
 kotlin.version=2.0.21
-compose.version=1.7.1
+compose.version=1.7.3
 ```
 
 ### Usage/Examples
