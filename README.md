@@ -4,7 +4,7 @@
 
 ![Static Badge](https://img.shields.io/badge/desktop-006874?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
 
-**v1.0.5**
+**v1.0.6**
 
 Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of the application get the release marked as the last-release to warn the user of that application about a new version available
 
@@ -14,7 +14,7 @@ Kotlin Desktop Updater based on GitHub releases. From the GitHub's repository of
 
 ```gradle
 [versions]
-octocatkdu = "1.0.5"
+octocatkdu = "1.0.6"
 
 [libraries]
 octocatkdu = { module = "io.github.n7ghtm4r3:octocatkdu", version.ref = "octocatkdu" }
@@ -46,7 +46,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'io.github.n7ghtm4r3:octocatkdu:1.0.5'
+        implementation 'io.github.n7ghtm4r3:octocatkdu:1.0.6'
     }
     ```
 
@@ -54,7 +54,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("io.github.n7ghtm4r3:octocatkdu:1.0.5")
+        implementation("io.github.n7ghtm4r3:octocatkdu:1.0.6")
     }
     ```
 
@@ -65,13 +65,6 @@ Add the JitPack repository to your build file
         implementation(libs.octocatkdu)
     }
     ```
-
-### Latest supported properties configuration
-
-``` properties
-kotlin.version=2.0.21
-compose.version=1.7.3
-```
 
 ### Usage/Examples
 

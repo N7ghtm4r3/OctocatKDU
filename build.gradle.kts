@@ -5,39 +5,45 @@ import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    kotlin("jvm")
-    id("org.jetbrains.compose")
-    id("org.jetbrains.kotlin.plugin.compose")
-    id("com.vanniktech.maven.publish") version "0.30.0"
-    id("org.jetbrains.dokka") version ("1.9.20")
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.vanniktech.mavenPublish)
 }
 
 buildscript {
     dependencies {
-        classpath("org.jetbrains.dokka:dokka-base:1.9.20")
+        classpath(libs.dokka.base)
     }
 }
 
 group = "com.tecknobit"
-version = "1.0.5"
-
-repositories {
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    maven("https://jitpack.io")
-    google()
-}
+version = "1.0.6"
 
 dependencies {
     implementation(compose.desktop.currentOs)
     implementation(compose.components.resources)
     implementation(compose.material3)
-    implementation("com.github.N7ghtm4r3:GitHubManager:1.0.1")
-    implementation("com.github.N7ghtm4r3:APIManager:2.2.4")
-    implementation("com.mikepenz:multiplatform-markdown-renderer-m3:0.14.0")
-    implementation("org.json:json:20240303")
+    implementation(libs.githubManager)
+    implementation(libs.apiManager)
+    implementation(libs.richeditor)
+    implementation(libs.json)
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_18)
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(18))
+    }
 }
 
 mavenPublishing {
@@ -50,7 +56,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.n7ghtm4r3",
         artifactId = "octocatkdu",
-        version = "1.0.5"
+        version = "1.0.6"
     )
     pom {
         name.set("OctocatKDU")
