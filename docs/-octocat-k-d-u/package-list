@@ -1,0 +1,46 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.tecknobit.octocatkdu////PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/index.html
+$dokka.location:com.tecknobit.octocatkdu//FakeUpdaterDialog/#kotlin.Boolean#com.tecknobit.octocatkdu.OctocatKDUFakeConfig#com.tecknobit.octocatkdu.OctocatKDUStyle/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-fake-updater-dialog.html
+$dokka.location:com.tecknobit.octocatkdu//UpdaterDialog/#com.tecknobit.octocatkdu.OctocatKDUConfig#com.tecknobit.octocatkdu.OctocatKDUStyle/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-updater-dialog.html
+$dokka.location:com.tecknobit.octocatkdu//last_version/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/last_version.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility.ALWAYS///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/-a-l-w-a-y-s/index.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility.ONCE_PER_DAY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/-o-n-c-e_-p-e-r_-d-a-y/index.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility.ONCE_PER_MONTH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/-o-n-c-e_-p-e-r_-m-o-n-t-h/index.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility.ONCE_PER_WEEK///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/-o-n-c-e_-p-e-r_-w-e-e-k/index.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility///PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/index.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility/entries/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/entries.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility/gap/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/gap.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility/valueOf/#kotlin.String/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/value-of.html
+$dokka.location:com.tecknobit.octocatkdu/FrequencyVisibility/values/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-frequency-visibility/values.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUConfig///PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-config/index.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUConfig/OctocatKDUConfig/#com.tecknobit.octocatkdu.FrequencyVisibility#java.util.Locale#kotlin.Boolean#kotlin.String#kotlin.String#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.Function1[kotlin.Boolean,kotlin.Unit]/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-config/-octocat-k-d-u-config.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUConfig/currentVersion/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-config/current-version.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUConfig/frequencyVisibility/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-config/frequency-visibility.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig///PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/index.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/OctocatKDUFakeConfig/#java.util.Locale#kotlin.Boolean#kotlin.String#kotlin.String?#kotlin.Function0[kotlin.Unit]#kotlin.String?#kotlin.Function0[kotlin.Unit]#kotlin.Function1[kotlin.Boolean,kotlin.Unit]/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/-octocat-k-d-u-fake-config.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/appName/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/app-name.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/confirmAction/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/confirm-action.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/dismissAction/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/dismiss-action.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/locale/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/locale.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/newVersion/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/new-version.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/notShowAtNextLaunchOptionEnabled/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/not-show-at-next-launch-option-enabled.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/onUpdateAvailable/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/on-update-available.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUFakeConfig/releaseNotes/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-fake-config/release-notes.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle///PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/index.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/OctocatKDUStyle/#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.Shape#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.Color#androidx.compose.ui.unit.TextUnit#androidx.compose.ui.text.font.FontStyle?#androidx.compose.ui.text.font.FontWeight?#androidx.compose.ui.text.font.FontFamily?#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.Color#androidx.compose.ui.unit.TextUnit#androidx.compose.ui.text.font.FontStyle?#androidx.compose.ui.text.font.FontWeight?#androidx.compose.ui.text.font.FontFamily?/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/-octocat-k-d-u-style.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/dialogModifier/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/dialog-modifier.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/shape/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/shape.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/textColor/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/text-color.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/textFontFamily/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/text-font-family.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/textFontSize/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/text-font-size.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/textFontStyle/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/text-font-style.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/textFontWeight/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/text-font-weight.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/textModifier/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/text-modifier.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/titleColor/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/title-color.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/titleFontFamily/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/title-font-family.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/titleFontSize/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/title-font-size.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/titleFontStyle/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/title-font-style.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/titleFontWeight/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/title-font-weight.html
+$dokka.location:com.tecknobit.octocatkdu/OctocatKDUStyle/titleModifier/#/PointingToDeclaration/-octocat-k-d-u/com.tecknobit.octocatkdu/-octocat-k-d-u-style/title-modifier.html
+com.tecknobit.octocatkdu
