@@ -40,6 +40,12 @@ kotlin {
     }
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(18))
+    }
+}
+
 mavenPublishing {
     configure(
         platform = KotlinJvm(
