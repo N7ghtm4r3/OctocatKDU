@@ -1,3 +1,5 @@
+package com.tecknobit.octocatkdu;
+
 import com.tecknobit.apimanager.apis.ConsolePainter;
 import com.tecknobit.apimanager.apis.ConsolePainter.ANSIColor;
 import com.tecknobit.apimanager.apis.ResourcesUtils;
@@ -24,7 +26,7 @@ import static java.util.concurrent.Executors.newCachedThreadPool;
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 /**
- * The {@code KDUWorker} class is useful to check whether there is a last release available and in that case manage the
+ * The {@code com.tecknobit.octocatkdu.KDUWorker} class is useful to check whether there is a last release available and in that case manage the
  * installation of the correct executable to update the current version
  *
  * @author N7ghtm4r3 - Tecknobit
@@ -141,7 +143,7 @@ class KDUWorker {
 
     /**
      * Method to read the current resources stored from  and to load the
-     * instance <br>
+     * instance
      * @throws IOException when an error reading the resources file occurred
      */
     private JsonHelper getConfig() throws IOException {
@@ -176,9 +178,9 @@ class KDUWorker {
     }
 
     /**
-     * Method to install the new version. <br>
+     * Method to install the new version.
      * After the installation of the correct executable file will be closed the application and launch that executable
-     * to install the new version <br>
+     * to install the new version
      *
      * @apiNote will be invoked {@link #installAndRunExecutable(String, String)} to perform this task
      */
@@ -243,7 +245,7 @@ class KDUWorker {
     }
 
     /**
-     * Method to stop the current installation, will be also deleted the executable file if has been already saved <br>
+     * Method to stop the current installation, will be also deleted the executable file if has been already saved
      */
     public void stopInstallation() {
         executor.shutdownNow();
@@ -277,7 +279,7 @@ class KDUWorker {
     }
 
     /**
-     * Method to get the current OS where the application is running <br>
+     * Method to get the current OS where the application is running
      *
      * @return the current OS where the application is running instance as {@link OS}
      */
@@ -320,18 +322,18 @@ class KDUWorker {
     }
 
     /**
-     * Method to get the latest version code <br>
+     * Method to get the latest version code
      *
      * @return the latest version code as {@link String}
      */
     public String getLastVersionCode() {
         if (lastRelease == null)
             return null;
-        return "v. " + lastRelease.getTagName();
+        return "v" + lastRelease.getTagName();
     }
 
     /**
-     * Method to get the latest version notes <br>
+     * Method to get the latest version notes
      *
      * @return the latest version notes as {@link String}
      */

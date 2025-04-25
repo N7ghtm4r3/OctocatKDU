@@ -1,7 +1,9 @@
+package com.tecknobit.octocatkdu;
+
 import java.util.prefs.Preferences;
 
 /**
- * The {@code KDUExhibitor} class is useful to check whether the dialog can be displayed or not according to the user
+ * The {@code com.tecknobit.octocatkdu.KDUExhibitor} class is useful to check whether the dialog can be displayed or not according to the user
  * and developer settings
  *
  * @author N7ghtm4r3 - Tecknobit
@@ -57,7 +59,7 @@ class KDUExhibitor {
     }
 
     /**
-     * Method to get whether the dialog can be displayed or not <br>
+     * Method to get whether the dialog can be displayed or not
      *
      * @param isFakeDialog Whether the dialog that is testing is the real one or the fake
      *
@@ -71,7 +73,7 @@ class KDUExhibitor {
 
     /**
      * Method to get whether the dialog can be shown at the next launch, so if the user has not selected the option
-     * to not show anymore the dialog <br>
+     * to not show anymore the dialog
      *
      * @return whether the dialog can be shown at the next launch as boolean
      */
@@ -81,8 +83,7 @@ class KDUExhibitor {
 
     /**
      * Method to get whether the last time when the dialog has been displayed has exceeded comparing it to the
-     * {@link #frequencyVisibility} chosen <br>
-     *
+     * {@link #frequencyVisibility} chosen
      *
      * @return whether the last time when the dialog has been displayed has exceeded as boolean
      */
@@ -92,15 +93,14 @@ class KDUExhibitor {
     }
 
     /**
-     * Method to refresh the last time when the dialog has been shown <br>
-     *
+     * Method to refresh the last time when the dialog has been shown
      */
     public void refreshDisplayedTime() {
         preferences.putLong(LAST_TIME_DIALOG_DISPLAYED_KEY, System.currentTimeMillis());
     }
 
     /**
-     * Method to get the last time when the dialog has been shown <br>
+     * Method to get the last time when the dialog has been shown
      *
      * @return the last time when the dialog has been shown as long
      */
